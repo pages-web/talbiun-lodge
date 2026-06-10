@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Experiences",
+    "contact": "Contact",
+    "bookNow": "Book Now"
+  },
+  "hero": {
+    "subtitle": "MONGOLIAN STEPPE RETREAT",
+    "title": "Stay Beneath the Endless Mongolian Sky",
+    "description": "Traditional Mongolian Hospitality, Modern Comfort",
+    "cta": "Explore Our Gers"
+  },
+  "about": {
+    "label": "About Us",
+    "title": "A Ger Retreat on the Open Steppe",
+    "description": "Nestled on Mongolia's open steppe, Talbiun Lodge offers a rare opportunity to experience traditional nomadic hospitality without sacrificing modern comfort. Each ger is handcrafted by local artisans using time-honored techniques.",
+    "cta": "Discover Our Story"
+  },
+  "location": {
+    "label": "Location",
+    "title": "In the Heart of the Steppe",
+    "description": "Located in Mongolia's pristine Orkhon Valley, Talbiun Lodge offers an unparalleled connection with nature. Surrounded by rolling grasslands, ancient volcanic peaks, and the winding Orkhon River, this is where tradition meets tranquility.",
+    "address": "Orkhon Valley, Mongolia"
+  },
+  "services": {
+    "label": "Discover",
+    "title": "Steppe Experiences",
+    "subtitle": "Authentic Mongolian activities and traditions",
+    "experiences": {
+      "horseback": {
+        "title": "Horseback Riding",
+        "description": "Gallop across the open steppe on trained Mongolian horses"
+      },
+      "games": {
+        "title": "Nomadic Games",
+        "description": "Archery, wrestling, and ankle-bone shooting competitions"
+      },
+      "dinner": {
+        "title": "Traditional Dinner",
+        "description": "Khorkhog feast prepared by nomadic chefs over open fire"
+      },
+      "tea": {
+        "title": "Tea Ceremony",
+        "description": "Learn the ancient art of Mongolian hospitality and suutei tsai"
+      },
+      "stargazing": {
+        "title": "Stargazing",
+        "description": "Zero light pollution reveals the universe above the steppe"
+      },
+      "walks": {
+        "title": "Steppe Walks",
+        "description": "Guided nature walks through the grasslands with local experts"
+      }
+    }
+  },
+  "contact": {
+    "label": "Stay Connected",
+    "title": "Join Our Journey",
+    "description": "Receive updates about seasonal openings, special experiences, and stories from the steppe.",
+    "emailPlaceholder": "Your email",
+    "submit": "Subscribe",
+    "phone": "+976 9911 2233",
+    "address": "Orkhon Valley, Mongolia",
+    "season": "Season: June – September"
+  },
+  "footer": {
+    "tagline": "Experience authentic Mongolian steppe life in luxury gers. Traditional hospitality meets modern comfort on the open grasslands.",
+    "explore": "Explore",
+    "contact": "Contact",
+    "practical": "Practical",
+    "rights": "All rights reserved"
+  }
+}
