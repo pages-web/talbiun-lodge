@@ -1,10 +1,6 @@
-import { useTranslations } from "next-intl";
-import { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Experiences | Talbiun Lodge",
-  description: "Authentic Mongolian activities and traditions at Talbiun Lodge.",
-};
+import { useTranslations } from "next-intl";
 
 export default function ExperiencesPage() {
   const t = useTranslations("services");

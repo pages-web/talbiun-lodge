@@ -1,10 +1,6 @@
-import { useTranslations } from "next-intl";
-import { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Contact | Talbiun Lodge",
-  description: "Get in touch with Talbiun Lodge for bookings and inquiries.",
-};
+import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
   const t = useTranslations("contact");

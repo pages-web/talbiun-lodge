@@ -1,10 +1,6 @@
-import { useTranslations } from "next-intl";
-import { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "About Us | Talbiun Lodge",
-  description: "Nestled on Mongolia's open steppe, Talbiun Lodge offers a rare opportunity to experience traditional nomadic hospitality.",
-};
+import { useTranslations } from "next-intl";
 
 export default function AboutPage() {
   const t = useTranslations("about");

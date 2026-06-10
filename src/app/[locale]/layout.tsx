@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
 import ApolloClientProvider from "@/lib/apollo/provider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -37,7 +36,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const messages = await getMessages();
+  const messages = (await import(`../../../messages/${locale}.json`)).default;
 
   return (
     <html
@@ -45,7 +44,7 @@ export default async function LocaleLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-[#F5F0E8] text-[#2C1810]">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages} locale={locale}>
           <ApolloClientProvider>
             <Header />
             <main className="flex-1">{children}</main>
