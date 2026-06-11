@@ -51,6 +51,9 @@ export default async function LocaleLayout({
             <Footer />
           </ApolloClientProvider>
         </NextIntlClientProvider>
+        
+        {/* Natural film grain overlay */}
+        <div className="grain-overlay" />
       </body>
     </html>
   );
