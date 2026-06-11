@@ -4,34 +4,38 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Send } from "lucide-react";
 
 export default function ContactSection() {
   const t = useTranslations("contact");
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
   const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setEmail("");
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
   };
 
   return (
-    <section ref={ref} className="py-24 bg-[#2C1810]">
+    <section ref={ref} className="py-24 bg-gradient-to-b from-[#0f1729] to-[#0a1628]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-xs tracking-[0.3em] text-[#C9A84C] uppercase mb-4"
+          className="text-xs tracking-[0.3em] text-[#3b82f6] uppercase mb-4"
         >
-          {t("label")}
+          Stay Connected
         </motion.p>
 
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-5xl font-serif text-[#F5F0E8] mb-6"
+          className="text-4xl md:text-5xl font-serif text-white mb-6"
         >
           {t("title")}
         </motion.h2>
@@ -40,7 +44,7 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-[#F5F0E8]/70 mb-10"
+          className="text-slate-400 mb-10"
         >
           {t("description")}
         </motion.p>
@@ -56,17 +60,28 @@ export default function ContactSection() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder={t("emailPlaceholder")}
-            className="flex-1 px-6 py-3 bg-transparent border border-[#F5F0E8]/30 text-[#F5F0E8] placeholder-[#F5F0E8]/40 focus:outline-none focus:border-[#C9A84C] transition-colors"
+            placeholder="Your email address"
+            className="flex-1 px-6 py-3 bg-[#1e3a5f]/30 border border-[#2d5a7b] text-white placeholder-slate-500 rounded-lg focus:outline-none focus:border-[#3b82f6]"
             required
           />
           <button
             type="submit"
-            className="px-8 py-3 bg-[#C9A84C] text-[#2C1810] text-sm font-medium tracking-wide hover:bg-[#F5F0E8] transition-colors"
+            className="px-8 py-3 bg-gradient-to-r from-[#3b82f6] to-[#1e3a5f] text-white font-medium rounded-lg hover:from-[#2563eb] hover:to-[#1e40af] transition-all flex items-center justify-center gap-2"
           >
-            {t("submit")}
+            <Send size={18} />
+            Subscribe
           </button>
         </motion.form>
+
+        {submitted && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-4 text-green-400"
+          >
+            Thank you for subscribing!
+          </motion.p>
+        )}
       </div>
     </section>
   );

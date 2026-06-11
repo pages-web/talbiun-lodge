@@ -43,7 +43,7 @@ export default async function LocaleLayout({
       lang={locale}
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#F5F0E8] text-[#2C1810]">
+      <body className="min-h-full flex flex-col font-sans bg-[#0f1729] text-slate-200">
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ApolloClientProvider>
             <Header />

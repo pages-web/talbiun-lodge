@@ -2,7 +2,8 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "services": "Experiences",
+    "accommodation": "Accommodation",
+    "experiences": "Experiences",
     "contact": "Contact",
     "bookNow": "Book Now"
   },
@@ -16,13 +17,37 @@
     "label": "About Us",
     "title": "A Ger Retreat on the Open Steppe",
     "description": "Nestled on Mongolia's open steppe, Talbiun Lodge offers a rare opportunity to experience traditional nomadic hospitality without sacrificing modern comfort. Each ger is handcrafted by local artisans using time-honored techniques.",
-    "cta": "Discover Our Story"
+    "cta": "Discover Our Story",
+    "teamTitle": "Our Team",
+    "teamDescription": "Meet the passionate people behind Talbiun Lodge who work tirelessly to provide you with an authentic Mongolian experience."
   },
-  "location": {
-    "label": "Location",
-    "title": "In the Heart of the Steppe",
-    "description": "Located in Mongolia's pristine Orkhon Valley, Talbiun Lodge offers an unparalleled connection with nature. Surrounded by rolling grasslands, ancient volcanic peaks, and the winding Orkhon River, this is where tradition meets tranquility.",
-    "address": "Orkhon Valley, Mongolia"
+  "accommodation": {
+    "title": "Our Gers",
+    "subtitle": "Luxury Traditional Accommodation",
+    "description": "Experience authentic Mongolian living in our handcrafted gers, equipped with modern amenities for your comfort.",
+    "bookNow": "Book Now",
+    "price": "per night",
+    "detail": {
+      "amenities": "Amenities",
+      "capacity": "Capacity",
+      "size": "Size",
+      "bookThisGer": "Book This Ger"
+    },
+    "ger1": {
+      "name": "Deluxe Ger",
+      "description": "Spacious ger with king-sized bed, private bathroom, and stunning steppe views. Perfect for couples seeking luxury.",
+      "price": "$180"
+    },
+    "ger2": {
+      "name": "Family Ger",
+      "description": "Large ger accommodating up to 4 guests with two queen beds, ensuite bathroom, and traditional Mongolian decor.",
+      "price": "$220"
+    },
+    "ger3": {
+      "name": "Standard Ger",
+      "description": "Comfortable ger with double bed, shared bathroom facilities, and authentic nomadic atmosphere.",
+      "price": "$120"
+    }
   },
   "services": {
     "label": "Discover",
@@ -56,20 +81,23 @@
     }
   },
   "contact": {
-    "label": "Stay Connected",
-    "title": "Join Our Journey",
-    "description": "Receive updates about seasonal openings, special experiences, and stories from the steppe.",
-    "emailPlaceholder": "Your email",
-    "submit": "Subscribe",
+    "title": "Get In Touch",
+    "description": "We would love to hear from you. Reach out for bookings, inquiries, or just to say hello.",
     "phone": "+976 9911 2233",
-    "address": "Orkhon Valley, Mongolia",
-    "season": "Season: June – September"
+    "email": "info@talbiun.mn",
+    "address": "Orkhon Valley, Arkhangai Province, Mongolia",
+    "location": "Location",
+    "season": "Open: June - September",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "message": "Your Message",
+      "send": "Send Message"
+    }
   },
   "footer": {
-    "tagline": "Experience authentic Mongolian steppe life in luxury gers. Traditional hospitality meets modern comfort on the open grasslands.",
-    "explore": "Explore",
-    "contact": "Contact",
-    "practical": "Practical",
-    "rights": "All rights reserved"
+    "tagline": "Experience authentic Mongolian steppe life in luxury gers.",
+    "rights": "All rights reserved",
+    "followUs": "Follow Us"
   }
 }
