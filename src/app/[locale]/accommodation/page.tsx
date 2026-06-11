@@ -1,10 +1,10 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Link } from "@/i18n/routing";
-import { Users, Bath, Maximize } from "lucide-react";
+import { Users, Maximize, ArrowRight } from "lucide-react";
 
 const gers = [
   {
@@ -26,7 +26,7 @@ const gers = [
   {
     id: "standard",
     key: "ger3",
-    image: "/images/ger-exterior.jpg",
+    image: "/images/ger-family.jpg",
     amenities: ["Double Bed", "Shared Bathroom", "Heating", "Traditional Decor"],
     capacity: "2 guests",
     size: "25 m²",
@@ -38,16 +38,16 @@ export default function AccommodationPage() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <div className="pt-24 pb-24 bg-[#0f1729] min-h-screen">
+    <div className="pt-24 pb-24 bg-[#faf8f5] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.3em] text-[#3b82f6] uppercase mb-4">
+          <p className="text-xs tracking-[0.3em] text-[#8b6914] uppercase mb-4 font-medium">
             {t("subtitle")}
           </p>
-          <h1 className="text-4xl md:text-5xl font-serif text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-serif text-[#2c2420] mb-4">
             {t("title")}
           </h1>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-[#8a7a6a] max-w-2xl mx-auto">
             {t("description")}
           </p>
         </div>
@@ -59,40 +59,56 @@ export default function AccommodationPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="group bg-[#1e3a5f]/20 rounded-xl overflow-hidden border border-[#2d5a7b]/30 hover:border-[#3b82f6]/50 transition-all"
+              className="group bg-white rounded-2xl overflow-hidden border border-[#e8dcc8]/50 natural-shadow natural-shadow-hover transition-all"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={ger.image}
-                  alt={t(`${ger.key}.name`)}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute top-4 right-4 bg-[#3b82f6] text-white px-4 py-2 rounded-lg font-bold">
-                  {t(`${ger.key}.price`)}
-                  <span className="text-sm font-normal">/{t("price")}</span>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{t(`${ger.key}.name`)}</h3>
-                <p className="text-slate-400 mb-4">{t(`${ger.key}.description`)}</p>
-
-                <div className="flex gap-4 mb-4 text-sm text-slate-400">
-                  <div className="flex items-center gap-1">
-                    <Users size={16} />
-                    <span>{ger.capacity}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Maximize size={16} />
-                    <span>{ger.size}</span>
+              <Link href={`/accommodation/${ger.id}`} className="block">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={ger.image}
+                    alt={t(`${ger.key}.name`)}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-[#2c2420] px-4 py-2 rounded-lg font-bold shadow-md">
+                    {t(`${ger.key}.price`)}
+                    <span className="text-sm font-normal text-[#8a7a6a]">/{t("price")}</span>
                   </div>
                 </div>
 
+                <div className="p-6 pb-0">
+                  <h3 className="text-xl font-bold text-[#2c2420] mb-2 group-hover:text-[#8b6914] transition-colors">{t(`${ger.key}.name`)}</h3>
+                  <p className="text-[#8a7a6a] mb-4">{t(`${ger.key}.description`)}</p>
+
+                  <div className="flex gap-4 mb-4 text-sm text-[#8a7a6a]">
+                    <div className="flex items-center gap-1">
+                      <Users size={16} />
+                      <span>{ger.capacity}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Maximize size={16} />
+                      <span>{ger.size}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {ger.amenities.map((amenity) => (
+                      <span
+                        key={amenity}
+                        className="px-3 py-1 bg-[#f5f0e8] text-[#5c4d42] text-xs rounded-full border border-[#e8dcc8]"
+                      >
+                        {amenity}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+
+              <div className="px-6 pb-6">
                 <Link
                   href={`/accommodation/${ger.id}`}
-                  className="block w-full text-center py-3 bg-gradient-to-r from-[#3b82f6] to-[#1e3a5f] text-white rounded-lg hover:from-[#2563eb] hover:to-[#1e40af] transition-all"
+                  className="flex items-center justify-center gap-2 w-full text-center py-3 bg-[#8b6914] text-white rounded-lg hover:bg-[#6b5010] transition-all font-medium"
                 >
                   {t("bookNow")}
+                  <ArrowRight size={16} />
                 </Link>
               </div>
             </motion.div>

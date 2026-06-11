@@ -31,7 +31,19 @@
       "amenities": "Amenities",
       "capacity": "Capacity",
       "size": "Size",
-      "bookThisGer": "Book This Ger"
+      "bookThisGer": "Book This Ger",
+      "checkIn": "Check In",
+      "checkOut": "Check Out",
+      "adults": "Adults",
+      "children": "Children",
+      "guests": "Guests",
+      "total": "Total",
+      "nights": "nights",
+      "night": "night",
+      "bookingSent": "Booking Request Sent!",
+      "bookingMessage": "We will contact you shortly to confirm your reservation.",
+      "backToGers": "Back to All Gers",
+      "pricePerNight": "Price per night"
     },
     "ger1": {
       "name": "Deluxe Ger",
@@ -81,6 +93,7 @@
     }
   },
   "contact": {
+    "label": "Contact Us",
     "title": "Get In Touch",
     "description": "We would love to hear from you. Reach out for bookings, inquiries, or just to say hello.",
     "phone": "+976 9911 2233",

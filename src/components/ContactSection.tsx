@@ -20,13 +20,13 @@ export default function ContactSection() {
   };
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-[#0f1729] to-[#0a1628]">
+    <section ref={ref} className="py-24 bg-[#f5f0e8]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-xs tracking-[0.3em] text-[#3b82f6] uppercase mb-4"
+          className="text-xs tracking-[0.3em] text-[#8b6914] uppercase mb-4 font-medium"
         >
           Stay Connected
         </motion.p>
@@ -35,7 +35,7 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-5xl font-serif text-white mb-6"
+          className="text-4xl md:text-5xl font-serif text-[#2c2420] mb-6"
         >
           {t("title")}
         </motion.h2>
@@ -44,7 +44,7 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-slate-400 mb-10"
+          className="text-[#8a7a6a] mb-10"
         >
           {t("description")}
         </motion.p>
@@ -61,12 +61,12 @@ export default function ContactSection() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email address"
-            className="flex-1 px-6 py-3 bg-[#1e3a5f]/30 border border-[#2d5a7b] text-white placeholder-slate-500 rounded-lg focus:outline-none focus:border-[#3b82f6]"
+            className="flex-1 px-6 py-3 bg-white border border-[#e8dcc8] text-[#2c2420] placeholder-[#8a7a6a] rounded-lg focus:outline-none focus:border-[#8b6914]"
             required
           />
           <button
             type="submit"
-            className="px-8 py-3 bg-gradient-to-r from-[#3b82f6] to-[#1e3a5f] text-white font-medium rounded-lg hover:from-[#2563eb] hover:to-[#1e40af] transition-all flex items-center justify-center gap-2"
+            className="px-8 py-3 bg-[#8b6914] text-white font-medium rounded-lg hover:bg-[#6b5010] transition-all flex items-center justify-center gap-2"
           >
             <Send size={18} />
             Subscribe
@@ -77,7 +77,7 @@ export default function ContactSection() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="mt-4 text-green-400"
+            className="mt-4 text-[#6b7c3e]"
           >
             Thank you for subscribing!
           </motion.p>

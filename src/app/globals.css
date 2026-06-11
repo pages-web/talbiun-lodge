@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f1729;
-  --foreground: #e2e8f0;
-  --color-primary: #1e3a5f;
-  --color-secondary: #2d5a7b;
-  --color-accent: #3b82f6;
-  --color-cream: #f0f9ff;
-  --color-deep-blue: #0c4a6e;
-  --color-ocean: #0ea5e9;
-  --color-gold: #f59e0b;
+  --background: #faf8f5;
+  --foreground: #2c2420;
+  --color-primary: #8b6914;
+  --color-secondary: #a0522d;
+  --color-accent: #d2691e;
+  --color-cream: #faf8f5;
+  --color-warm-white: #ffffff;
+  --color-terracotta: #c65d3b;
+  --color-sand: #e8dcc8;
+  --color-olive: #6b7c3e;
 }
 
 @theme inline {
@@ -19,9 +20,10 @@
   --color-secondary: var(--color-secondary);
   --color-accent: var(--color-accent);
   --color-cream: var(--color-cream);
-  --color-deep-blue: var(--color-deep-blue);
-  --color-ocean: var(--color-ocean);
-  --color-gold: var(--color-gold);
+  --color-warm-white: var(--color-warm-white);
+  --color-terracotta: var(--color-terracotta);
+  --color-sand: var(--color-sand);
+  --color-olive: var(--color-olive);
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
 }
@@ -40,7 +42,7 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.03;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
@@ -50,7 +52,7 @@ body {
     transform: scale(1) translate(0, 0);
   }
   50% {
-    transform: scale(1.1) translate(-1%, -1%);
+    transform: scale(1.08) translate(-1%, -0.5%);
   }
   100% {
     transform: scale(1) translate(0, 0);
@@ -58,7 +60,7 @@ body {
 }
 
 .ken-burns {
-  animation: kenBurns 30s ease-in-out infinite;
+  animation: kenBurns 25s ease-in-out infinite;
 }
 
 /* Subtle floating animation */
@@ -67,25 +69,32 @@ body {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
 /* Natural shadow that mimics real lighting */
 .natural-shadow {
   box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06),
-    0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    0 1px 3px rgba(44, 36, 32, 0.08),
+    0 4px 12px rgba(44, 36, 32, 0.05),
+    0 8px 24px rgba(44, 36, 32, 0.03);
+}
+
+.natural-shadow-hover:hover {
+  box-shadow: 
+    0 4px 6px rgba(44, 36, 32, 0.1),
+    0 8px 24px rgba(44, 36, 32, 0.08),
+    0 16px 48px rgba(44, 36, 32, 0.05);
 }
 
 /* Organic gradient for natural feel */
 .organic-gradient {
   background: linear-gradient(
     135deg,
-    rgba(15, 23, 41, 0.95) 0%,
-    rgba(30, 58, 95, 0.8) 50%,
-    rgba(15, 23, 41, 0.95) 100%
+    rgba(250, 248, 245, 0.98) 0%,
+    rgba(232, 220, 200, 0.9) 50%,
+    rgba(250, 248, 245, 0.98) 100%
   );
 }
 
@@ -95,12 +104,27 @@ body {
     transform: translateY(0) scale(1);
   }
   33% {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-4px) scale(1.01);
   }
   66% {
-    transform: translateY(3px) scale(0.99);
+    transform: translateY(2px) scale(0.99);
   }
   100% {
     transform: translateY(0) scale(1);
   }
+}
+
+/* Warm overlay for hero images */
+.warm-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(250, 248, 245, 0.3) 0%,
+    rgba(250, 248, 245, 0.1) 40%,
+    rgba(250, 248, 245, 0.6) 100%
+  );
+}
+
+/* Text shadow for readability on images */
+.text-shadow-hero {
+  text-shadow: 0 2px 8px rgba(44, 36, 32, 0.3);
 }

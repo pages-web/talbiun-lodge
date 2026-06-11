@@ -11,6 +11,7 @@ export function generateStaticParams() {
   ];
 }
 
-export default function AccommodationDetailPage({ params }: { params: { locale: string; id: string } }) {
-  return <AccommodationDetailClient id={params.id} />;
+export default async function AccommodationDetailPage({ params }: { params: Promise<{ locale: string; id: string }> }) {
+  const { id } = await params;
+  return <AccommodationDetailClient id={id} />;
 }

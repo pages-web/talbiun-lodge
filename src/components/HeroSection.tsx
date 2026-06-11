@@ -3,38 +3,34 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 export default function HeroSection() {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0f1729] via-[#1e3a5f] to-[#0f1729]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Full background image */}
+      <div className="absolute inset-0">
         <div
-          className="absolute inset-0 opacity-40 ken-burns"
+          className="absolute inset-0 ken-burns"
           style={{
             backgroundImage: `url('/images/hero-bg.jpg')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f1729]/70 via-transparent to-[#0f1729]/90" />
-        
-        {/* Natural vignette effect */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(15, 23, 41, 0.4) 100%)'
-          }}
-        />
+        {/* Warm gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#faf8f5]/40 via-transparent to-[#faf8f5]/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#faf8f5]/30 via-transparent to-[#faf8f5]/30" />
       </div>
 
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xs tracking-[0.3em] text-[#3b82f6] uppercase mb-6"
+          className="text-xs tracking-[0.3em] text-[#8b6914] uppercase mb-6 font-medium"
         >
           {t("subtitle")}
         </motion.p>
@@ -43,7 +39,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-serif text-white leading-tight mb-6 drop-shadow-lg"
+          className="text-4xl sm:text-5xl md:text-7xl font-serif text-[#2c2420] leading-tight mb-6 text-shadow-hero"
         >
           {t("title")}
         </motion.h1>
@@ -52,7 +48,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-lg text-slate-200 mb-10 drop-shadow-md"
+          className="text-lg text-[#5c4d42] mb-10 max-w-2xl mx-auto"
         >
           {t("description")}
         </motion.p>
@@ -65,13 +61,13 @@ export default function HeroSection() {
         >
           <Link
             href="/accommodation"
-            className="inline-block px-10 py-4 bg-gradient-to-r from-[#3b82f6] to-[#1e3a5f] text-white text-sm tracking-[0.15em] uppercase rounded-lg hover:from-[#2563eb] hover:to-[#1e40af] transition-all shadow-lg shadow-blue-900/30 natural-shadow"
+            className="inline-block px-10 py-4 bg-[#8b6914] text-white text-sm tracking-[0.15em] uppercase rounded-lg hover:bg-[#6b5010] transition-all shadow-lg natural-shadow"
           >
             {t("cta")}
           </Link>
           <Link
             href="/about"
-            className="inline-block px-10 py-4 border border-[#3b82f6]/50 text-[#3b82f6] text-sm tracking-[0.15em] uppercase rounded-lg hover:bg-[#3b82f6]/10 transition-all backdrop-blur-sm"
+            className="inline-block px-10 py-4 border-2 border-[#8b6914] text-[#8b6914] text-sm tracking-[0.15em] uppercase rounded-lg hover:bg-[#8b6914]/10 transition-all backdrop-blur-sm"
           >
             Learn More
           </Link>
@@ -84,13 +80,7 @@ export default function HeroSection() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <motion.div 
-            className="w-1.5 h-3 bg-white/50 rounded-full mt-2"
-            animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
+        <ChevronDown className="w-8 h-8 text-[#8b6914]/60" />
       </motion.div>
     </section>
   );
