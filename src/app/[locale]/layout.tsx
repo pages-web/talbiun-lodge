@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import ApolloClientProvider from "@/lib/apollo/provider";
+import { LocalAuthProvider } from "@/lib/auth/LocalAuthContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "../globals.css";
@@ -41,14 +42,16 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${playfair.variable} ${inter.variable} h-full antialiased`}
+      className={`${playfair.variable} ${inter.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#faf8f5] text-[#2c2420]">
+      <body className="min-h-full flex flex-col font-sans bg-[#f7f4ef] text-[#1f1a17]">
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ApolloClientProvider>
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
+            <LocalAuthProvider>
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </LocalAuthProvider>
           </ApolloClientProvider>
         </NextIntlClientProvider>
         

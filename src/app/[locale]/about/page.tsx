@@ -9,17 +9,17 @@ export default function AboutPage() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
-    <div className="pt-24 pb-24 bg-[#faf8f5] min-h-screen">
+    <div className="pt-24 pb-24 bg-[#f7f4ef] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.3em] text-[#8b6914] uppercase mb-4 font-medium">
+          <p className="text-xs tracking-[0.3em] text-[#7a5e12] uppercase mb-4 font-medium">
             {t("label")}
           </p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-serif text-[#2c2420] mb-4"
+            className="text-4xl md:text-5xl font-serif text-[#1f1a17] mb-4"
           >
             {t("title")}
           </motion.h1>
@@ -37,14 +37,14 @@ export default function AboutPage() {
               alt="Traditional Mongolian Ger"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#2c2420]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1f1a17]/20 to-transparent" />
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="prose prose-lg max-w-none text-[#5c4d42]"
+            className="prose prose-lg max-w-none text-[#4a3f36]"
           >
             <p className="text-xl leading-relaxed mb-8">
               {t("description")}
