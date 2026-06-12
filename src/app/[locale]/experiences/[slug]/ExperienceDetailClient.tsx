@@ -11,9 +11,9 @@ const articleMeta: Record<
   khorkhog: { image: "/images/ger-meal.jpg", date: "2025-05-15" },
   "mongolian-ger": { image: "/images/about-ger.jpg", date: "2025-04-22" },
   "horseback-tradition": { image: "/images/horseback.jpg", date: "2025-03-10" },
-  "nomadic-games": { image: "/images/ger-interior.jpg", date: "2025-02-28" },
-  "tea-ceremony": { image: "/images/ger-family.jpg", date: "2025-01-18" },
-  "stargazing-steppe": { image: "/images/hero-bg.jpg", date: "2024-12-05" },
+  "nomadic-games": { image: "/images/games.jpg", date: "2025-02-28" },
+  "tea-ceremony": { image: "/images/food.jpg", date: "2025-01-18" },
+  "stargazing-steppe": { image: "/images/stargazing.jpg", date: "2024-12-05" },
 };
 
 const keyBySlug: Record<string, string> = {

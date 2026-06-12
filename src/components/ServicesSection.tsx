@@ -6,11 +6,11 @@ import { useInView } from "react-intersection-observer";
 
 const experiences = [
   { key: "horseback", image: "/images/horseback.jpg" },
-  { key: "games", image: "/images/ger-interior.jpg" },
+  { key: "games", image: "/images/games.jpg" },
   { key: "dinner", image: "/images/ger-meal.jpg" },
-  { key: "tea", image: "/images/about-ger.jpg" },
-  { key: "stargazing", image: "/images/hero-bg.jpg" },
-  { key: "walks", image: "/images/ger-family.jpg" },
+  { key: "tea", image: "/images/food.jpg" },
+  { key: "stargazing", image: "/images/stargazing.jpg" },
+  { key: "walks", image: "/images/landscape.jpg" },
 ];
 
 export default function ServicesSection() {

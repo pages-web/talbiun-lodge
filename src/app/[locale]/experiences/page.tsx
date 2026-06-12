@@ -28,19 +28,19 @@ const articles = [
   {
     slug: "nomadic-games",
     key: "games",
-    image: "/images/ger-interior.jpg",
+    image: "/images/games.jpg",
     date: "2025-02-28",
   },
   {
     slug: "tea-ceremony",
     key: "tea",
-    image: "/images/ger-family.jpg",
+    image: "/images/food.jpg",
     date: "2025-01-18",
   },
   {
     slug: "stargazing-steppe",
     key: "stargazing",
-    image: "/images/hero-bg.jpg",
+    image: "/images/stargazing.jpg",
     date: "2024-12-05",
   },
 ];
