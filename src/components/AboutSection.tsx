@@ -79,8 +79,6 @@ export default function AboutSection() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 border border-[#c9a86c] rounded-sm hidden lg:block" />
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#c9a86c]/10 rounded-sm hidden lg:block" />
             </div>
           </motion.div>
         </div>
