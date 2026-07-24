@@ -17,7 +17,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" ref={ref} className="py-10 lg:py-12 bg-[#f7f4ef]">
+    <section id="about" ref={ref} className="min-h-screen flex flex-col justify-center py-16 lg:py-24 bg-[#f7f4ef]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           <motion.div

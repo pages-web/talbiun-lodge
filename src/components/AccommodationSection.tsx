@@ -38,7 +38,7 @@ export default function AccommodationSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-12 lg:py-16 bg-[#efe9df]">
+    <section ref={ref} className="min-h-screen flex flex-col justify-center py-16 lg:py-24 bg-[#efe9df]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
           <div className="max-w-2xl">
