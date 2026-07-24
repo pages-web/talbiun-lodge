@@ -38,15 +38,15 @@ export default function AccommodationSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-28 lg:py-36 bg-[#efe9df]">
+    <section ref={ref} className="py-12 lg:py-16 bg-[#efe9df]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
           <div className="max-w-2xl">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-xs tracking-[0.35em] text-[#7a5e12] uppercase mb-5 font-medium"
+              className="text-xs tracking-[0.35em] text-[#7a5e12] uppercase mb-3 font-medium"
             >
               {t("subtitle")}
             </motion.p>
@@ -54,7 +54,7 @@ export default function AccommodationSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#1f1a17] leading-[1.1] mb-5"
+              className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1f1a17] leading-[1.1] mb-3"
             >
               {t("title")}
             </motion.h2>
@@ -62,7 +62,7 @@ export default function AccommodationSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[#6b5e52] leading-relaxed"
+              className="text-[#6b5e52] leading-relaxed text-sm"
             >
               {t("description")}
             </motion.p>
@@ -83,7 +83,7 @@ export default function AccommodationSection() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {gers.map((ger, index) => (
             <motion.div
               key={ger.id}
@@ -93,33 +93,33 @@ export default function AccommodationSection() {
               className="group bg-[#f7f4ef] natural-shadow natural-shadow-hover transition-all"
             >
               <Link href={`/accommodation/${ger.id}`} className="block">
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden">
                   <img
                     src={ger.image}
                     alt={t(`${ger.key}.name`)}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-sm text-[#1f1a17] px-5 py-2.5 font-serif text-lg">
+                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm text-[#1f1a17] px-3 py-1.5 font-serif text-base">
                     {t(`${ger.key}.price`)}
                     <span className="text-xs font-sans font-normal text-[#6b5e52] ml-1">/{t("price")}</span>
                   </div>
                 </div>
 
-                <div className="p-7">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors">
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-lg font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors">
                       {t(`${ger.key}.name`)}
                     </h3>
                     <span className="text-xs text-[#6b5e52]">{ger.size}</span>
                   </div>
 
-                  <p className="text-[#6b5e52] mb-5 leading-relaxed">{t(`${ger.key}.description`)}</p>
+                  <p className="text-[#6b5e52] mb-3 leading-relaxed text-sm line-clamp-2">{t(`${ger.key}.description`)}</p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {ger.amenities.map((amenity) => (
                       <span
                         key={amenity}
-                        className="px-3 py-1 bg-white text-[#4a3f36] text-xs tracking-wide"
+                        className="px-2 py-0.5 bg-white text-[#4a3f36] text-[10px] tracking-wide"
                       >
                         {amenity}
                       </span>
