@@ -17,7 +17,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+    <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
       {/* Full background image */}
       <div className="absolute inset-0">
         <Image
@@ -50,7 +50,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.1] mb-4 text-shadow-hero"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-[1.1] mb-4 text-shadow-hero"
         >
           {t("title")}
         </motion.h1>
@@ -72,13 +72,13 @@ export default function HeroSection() {
         >
           <Link
             href="/accommodation"
-            className="inline-block px-6 py-2.5 bg-[#c9a86c] text-[#1f1a17] text-xs tracking-[0.15em] uppercase rounded-lg hover:bg-[#b89a60] transition-all shadow-lg font-semibold"
+            className="inline-block px-5 py-2 bg-[#c9a86c] text-[#1f1a17] text-[11px] tracking-[0.15em] uppercase rounded-lg hover:bg-[#b89a60] transition-all shadow-lg font-semibold"
           >
             {t("cta")}
           </Link>
           <Link
             href="/about"
-            className="inline-block px-6 py-2.5 border-2 border-white/60 text-white text-xs tracking-[0.15em] uppercase rounded-lg hover:bg-white/10 transition-all backdrop-blur-sm"
+            className="inline-block px-5 py-2 border-2 border-white/60 text-white text-[11px] tracking-[0.15em] uppercase rounded-lg hover:bg-white/10 transition-all backdrop-blur-sm"
           >
             {t("learnMore")}
           </Link>
@@ -90,11 +90,11 @@ export default function HeroSection() {
         type="button"
         onClick={scrollToAbout}
         aria-label="Scroll to about section"
-        className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 p-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 transition-colors cursor-pointer"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 p-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 transition-colors cursor-pointer"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <ChevronDown className="w-5 h-5 text-white" />
+        <ChevronDown className="w-4 h-4 text-white" />
       </motion.button>
     </section>
   );

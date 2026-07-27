@@ -18,9 +18,9 @@ export default function ServicesSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="min-h-screen flex flex-col justify-center py-16 lg:py-24 bg-[#f7f4ef]">
+    <section ref={ref} className="py-12 lg:py-20 bg-[#f7f4ef]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -33,7 +33,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1f1a17] leading-[1.1] mb-3"
+              className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#1f1a17] leading-[1.1] mb-3"
           >
             {t("title")}
           </motion.h2>
@@ -41,7 +41,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-[#6b5e52] leading-relaxed text-sm"
+              className="text-[#6b5e52] leading-relaxed text-xs"
           >
             {t("subtitle")}
           </motion.p>
@@ -68,10 +68,10 @@ export default function ServicesSection() {
                 <div className="text-xs tracking-[0.2em] uppercase text-[#c9a86c] font-medium">
                   {String(index + 1).padStart(2, "0")}
                 </div>
-                <h3 className="text-lg font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors">
+                <h3 className="text-base font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors">
                   {t(`experiences.${exp.key}.title`)}
                 </h3>
-                <p className="text-[#6b5e52] leading-relaxed text-sm line-clamp-2">
+                <p className="text-[#6b5e52] leading-relaxed text-xs line-clamp-2">
                   {t(`experiences.${exp.key}.description`)}
                 </p>
               </div>

@@ -17,7 +17,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" ref={ref} className="min-h-screen flex flex-col justify-center py-16 lg:py-24 bg-[#f7f4ef]">
+    <section id="about" ref={ref} className="py-12 lg:py-20 bg-[#f7f4ef]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           <motion.div
@@ -29,12 +29,12 @@ export default function AboutSection() {
             <p className="text-[10px] tracking-[0.35em] text-[#7a5e12] uppercase mb-2 font-medium">
               {t("label")}
             </p>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#1f1a17] leading-[1.1] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-serif text-[#1f1a17] leading-[1.1] mb-4">
               {t("title")}
             </h2>
 
             <div className="space-y-2 mb-4">
-              <p className="text-[#4a3f36] leading-[1.5] text-sm">
+              <p className="text-[#4a3f36] leading-[1.5] text-xs">
                 {t("description")}
               </p>
               <p className="text-[#6b5e52] leading-[1.5] text-xs">
@@ -44,7 +44,7 @@ export default function AboutSection() {
 
             <Link
               href="/about"
-              className="inline-flex items-center text-xs tracking-[0.1em] uppercase text-[#7a5e12] hover:text-[#5a450e] transition-colors font-semibold group"
+              className="inline-flex items-center text-[11px] tracking-[0.1em] uppercase text-[#7a5e12] hover:text-[#5a450e] transition-colors font-semibold group"
             >
               {t("cta")}
               <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -58,7 +58,7 @@ export default function AboutSection() {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 >
-                  <div className="text-xl md:text-2xl font-serif text-[#1f1a17] mb-0.5">{stat.number}</div>
+                  <div className="text-lg md:text-xl font-serif text-[#1f1a17] mb-0.5">{stat.number}</div>
                   <div className="text-[10px] tracking-[0.12em] uppercase text-[#6b5e52]">{stat.label}</div>
                 </motion.div>
               ))}

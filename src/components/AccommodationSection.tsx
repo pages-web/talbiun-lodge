@@ -38,7 +38,7 @@ export default function AccommodationSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="min-h-screen flex flex-col justify-center py-16 lg:py-24 bg-[#efe9df]">
+    <section ref={ref} className="py-12 lg:py-20 bg-[#efe9df]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
           <div className="max-w-2xl">
@@ -54,7 +54,7 @@ export default function AccommodationSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1f1a17] leading-[1.1] mb-3"
+              className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#1f1a17] leading-[1.1] mb-3"
             >
               {t("title")}
             </motion.h2>
@@ -62,7 +62,7 @@ export default function AccommodationSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[#6b5e52] leading-relaxed text-sm"
+              className="text-[#6b5e52] leading-relaxed text-xs"
             >
               {t("description")}
             </motion.p>
@@ -75,7 +75,7 @@ export default function AccommodationSection() {
           >
             <Link
               href="/accommodation"
-              className="inline-flex items-center text-sm tracking-[0.1em] uppercase text-[#7a5e12] hover:text-[#5a450e] transition-colors font-semibold group"
+              className="inline-flex items-center text-xs tracking-[0.1em] uppercase text-[#7a5e12] hover:text-[#5a450e] transition-colors font-semibold group"
             >
               {t("viewAll") || "View All Gers"}
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -99,34 +99,34 @@ export default function AccommodationSection() {
                     alt={t(`${ger.key}.name`)}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm text-[#1f1a17] px-3 py-1.5 font-serif text-base">
+                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm text-[#1f1a17] px-2.5 py-1 font-serif text-sm">
                     {t(`${ger.key}.price`)}
                     <span className="text-xs font-sans font-normal text-[#6b5e52] ml-1">/{t("price")}</span>
                   </div>
                 </div>
 
-                <div className="p-5">
+                <div className="p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors">
+                    <h3 className="text-base font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors">
                       {t(`${ger.key}.name`)}
                     </h3>
-                    <span className="text-xs text-[#6b5e52]">{ger.size}</span>
+                    <span className="text-[10px] text-[#6b5e52]">{ger.size}</span>
                   </div>
 
-                  <p className="text-[#6b5e52] mb-3 leading-relaxed text-sm line-clamp-2">{t(`${ger.key}.description`)}</p>
+                  <p className="text-[#6b5e52] mb-3 leading-relaxed text-xs line-clamp-2">{t(`${ger.key}.description`)}</p>
 
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {ger.amenities.map((amenity) => (
                       <span
                         key={amenity}
-                        className="px-2 py-0.5 bg-white text-[#4a3f36] text-[10px] tracking-wide"
+                        className="px-2 py-0.5 bg-white text-[#4a3f36] text-[9px] tracking-wide"
                       >
                         {amenity}
                       </span>
                     ))}
                   </div>
 
-                  <span className="inline-flex items-center text-sm font-semibold text-[#7a5e12] group-hover:text-[#5a450e] transition-colors">
+                  <span className="inline-flex items-center text-xs font-semibold text-[#7a5e12] group-hover:text-[#5a450e] transition-colors">
                     {t("bookNow")}
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </span>

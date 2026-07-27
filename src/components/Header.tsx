@@ -50,19 +50,19 @@ export default function Header() {
       className={`${isHome ? "fixed" : "sticky"} top-0 z-50 w-full transition-all duration-500 ${headerBg}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a86c] to-[#7a5e12] rounded-lg transform rotate-3 group-hover:rotate-6 transition-transform" />
+            <div className="relative w-8 h-8">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a86c] to-[#7a5e12] rounded-md transform rotate-3 group-hover:rotate-6 transition-transform" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T</span>
+                <span className="text-white font-bold text-base">T</span>
               </div>
             </div>
             <div className="flex flex-col">
-              <span className={`text-xl font-bold tracking-wide transition-colors ${logoText}`}>
+              <span className={`text-lg font-bold tracking-wide transition-colors ${logoText}`}>
                 Talbiun
               </span>
-              <span className={`text-[10px] tracking-[0.3em] uppercase transition-colors ${logoSub}`}>
+              <span className={`text-[9px] tracking-[0.3em] uppercase transition-colors ${logoSub}`}>
                 Lodge
               </span>
             </div>
@@ -88,24 +88,24 @@ export default function Header() {
               onMouseEnter={() => setLangOpen(true)}
               onMouseLeave={() => setLangOpen(false)}
             >
-              <button className={`flex items-center gap-1 text-sm transition-colors ${mutedText}`}>
+              <button className={`flex items-center gap-1 text-xs transition-colors ${mutedText}`}>
                 <span>EN</span>
                 <ChevronDown size={14} />
               </button>
 
               {langOpen && (
-                <div className="absolute top-full right-0 mt-1 py-1 bg-white border border-[#d8c9b3] rounded-md shadow-lg min-w-[80px]">
+                <div className="absolute top-full right-0 mt-1 py-1 bg-white border border-[#d8c9b3] rounded-md shadow-lg min-w-[70px]">
                   <Link
                     href={pathname}
                     locale="en"
-                    className="block px-4 py-2 text-sm text-[#4a3f36] hover:text-[#1f1a17] hover:bg-[#f7f4ef] transition-colors"
+                    className="block px-3 py-1.5 text-xs text-[#4a3f36] hover:text-[#1f1a17] hover:bg-[#f7f4ef] transition-colors"
                   >
                     English
                   </Link>
                   <Link
                     href={pathname}
                     locale="mn"
-                    className="block px-4 py-2 text-sm text-[#4a3f36] hover:text-[#1f1a17] hover:bg-[#f7f4ef] transition-colors"
+                    className="block px-3 py-1.5 text-xs text-[#4a3f36] hover:text-[#1f1a17] hover:bg-[#f7f4ef] transition-colors"
                   >
                     Монгол
                   </Link>
@@ -115,7 +115,7 @@ export default function Header() {
 
             <Link
               href="/accommodation"
-              className={`px-6 py-2.5 text-sm font-medium rounded-lg transition-all shadow-md ${
+              className={`px-4 py-2 text-xs font-medium rounded-lg transition-all shadow-md ${
                 isTransparent
                   ? "bg-[#c9a86c] text-[#1f1a17] hover:bg-[#b89a60]"
                   : "bg-[#7a5e12] text-white hover:bg-[#5a450e]"
@@ -127,7 +127,7 @@ export default function Header() {
             {user ? (
               <Link
                 href="/profile"
-                className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors ${mutedText}`}
+                className={`flex items-center gap-2 px-3 py-2 text-xs font-medium transition-colors ${mutedText}`}
               >
                 <User size={16} />
                 {t("myProfile")}
@@ -135,7 +135,7 @@ export default function Header() {
             ) : (
               <Link
                 href="/login"
-                className={`flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg transition-all ${
+                className={`flex items-center gap-2 px-4 py-2 text-xs font-medium rounded-lg transition-all ${
                   isTransparent
                     ? "border border-white/60 text-white hover:bg-white/10"
                     : "border border-[#7a5e12] text-[#7a5e12] hover:bg-[#7a5e12] hover:text-white"
@@ -161,12 +161,12 @@ export default function Header() {
         <div className="md:hidden bg-white border-t border-[#d8c9b3]/50">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block text-[#4a3f36] hover:text-[#1f1a17] transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block text-sm text-[#4a3f36] hover:text-[#1f1a17] transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
                 {link.label}
               </Link>
             ))}
