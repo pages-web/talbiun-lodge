@@ -17,7 +17,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+    <section className="relative h-[60vh] min-h-[420px] flex items-center justify-center overflow-hidden">
       {/* Full background image */}
       <div className="absolute inset-0">
         <Image
@@ -26,7 +26,7 @@ export default function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_60%] ken-burns"
+          className="object-cover object-center ken-burns"
           loading="eager"
           decoding="async"
         />
