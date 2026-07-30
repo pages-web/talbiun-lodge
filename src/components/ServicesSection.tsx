@@ -18,14 +18,14 @@ export default function ServicesSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-12 lg:py-20 bg-[#f7f4ef]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="h-full min-h-full snap-start flex items-center justify-center bg-[#f7f4ef] py-6 lg:py-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center max-w-3xl mx-auto mb-8">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-xs tracking-[0.35em] text-[#7a5e12] uppercase mb-3 font-medium"
+            className="text-xs tracking-[0.35em] text-[#7a5e12] uppercase mb-2 font-medium"
           >
             {t("label")}
           </motion.p>
@@ -33,7 +33,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#1f1a17] leading-[1.1] mb-3"
+            className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#1f1a17] leading-[1.1] mb-2"
           >
             {t("title")}
           </motion.h2>
@@ -41,13 +41,13 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[#6b5e52] leading-relaxed text-xs"
+            className="text-[#6b5e52] leading-relaxed text-sm"
           >
             {t("subtitle")}
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.key}
@@ -56,7 +56,7 @@ export default function ServicesSection() {
               transition={{ duration: 0.6, delay: 0.1 * index }}
               className="group"
             >
-              <div className="relative aspect-[16/10] overflow-hidden mb-4 natural-shadow">
+              <div className="relative aspect-[16/10] overflow-hidden mb-3 natural-shadow">
                 <img
                   src={exp.image}
                   alt={t(`experiences.${exp.key}.title`)}
@@ -68,10 +68,10 @@ export default function ServicesSection() {
                 <div className="text-xs tracking-[0.2em] uppercase text-[#c9a86c] font-medium">
                   {String(index + 1).padStart(2, "0")}
                 </div>
-                <h3 className="text-base font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors">
+                <h3 className="text-lg font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors">
                   {t(`experiences.${exp.key}.title`)}
                 </h3>
-                <p className="text-[#6b5e52] leading-relaxed text-xs line-clamp-2">
+                <p className="text-[#6b5e52] leading-relaxed text-sm line-clamp-2">
                   {t(`experiences.${exp.key}.description`)}
                 </p>
               </div>

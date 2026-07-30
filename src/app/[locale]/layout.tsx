@@ -44,13 +44,15 @@ export default async function LocaleLayout({
       lang={locale}
       className={`${playfair.variable} ${inter.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#f7f4ef] text-[#1f1a17]">
+      <body className="h-screen overflow-hidden flex flex-col font-sans bg-[#f7f4ef] text-[#1f1a17]">
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ApolloClientProvider>
             <LocalAuthProvider>
               <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
+              <main className="flex-1 pt-16 h-screen overflow-y-auto snap-y snap-proximity scroll-smooth">
+                {children}
+                <Footer />
+              </main>
             </LocalAuthProvider>
           </ApolloClientProvider>
         </NextIntlClientProvider>
