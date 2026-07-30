@@ -25,31 +25,31 @@ export default function AboutSection() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <p className="text-[10px] tracking-[0.35em] text-[#7a5e12] uppercase mb-2 font-medium">
+            <p className="text-xs tracking-[0.35em] text-[#7a5e12] uppercase mb-3 font-medium">
               {t("label")}
             </p>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-serif text-[#1f1a17] leading-[1.1] mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#1f1a17] leading-[1.1] mb-4">
               {t("title")}
             </h2>
 
-            <div className="space-y-1.5 mb-3">
-              <p className="text-[#4a3f36] leading-[1.5] text-xs">
+            <div className="space-y-2 mb-4">
+              <p className="text-[#4a3f36] leading-[1.5] text-sm">
                 {t("description")}
               </p>
-              <p className="text-[#6b5e52] leading-[1.5] text-xs">
+              <p className="text-[#6b5e52] leading-[1.5] text-sm">
                 {t("extra")}
               </p>
             </div>
 
             <Link
               href="/about"
-              className="inline-flex items-center text-xs tracking-[0.1em] uppercase text-[#7a5e12] hover:text-[#5a450e] transition-colors font-semibold group"
+              className="inline-flex items-center text-sm tracking-[0.1em] uppercase text-[#7a5e12] hover:text-[#5a450e] transition-colors font-semibold group"
             >
               {t("cta")}
-              <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            <div className="grid grid-cols-3 gap-4 mt-4 pt-3 border-t border-[#d8c9b3]">
+            <div className="grid grid-cols-3 gap-6 mt-6 pt-4 border-t border-[#d8c9b3]">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -57,8 +57,8 @@ export default function AboutSection() {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 >
-                  <div className="text-xl md:text-2xl font-serif text-[#1f1a17] mb-1">{stat.number}</div>
-                  <div className="text-[10px] tracking-[0.12em] uppercase text-[#6b5e52]">{stat.label}</div>
+                  <div className="text-2xl md:text-3xl font-serif text-[#1f1a17] mb-1">{stat.number}</div>
+                  <div className="text-xs tracking-[0.12em] uppercase text-[#6b5e52]">{stat.label}</div>
                 </motion.div>
               ))}
             </div>

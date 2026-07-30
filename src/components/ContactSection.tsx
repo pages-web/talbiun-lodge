@@ -35,31 +35,31 @@ export default function ContactSection() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <p className="text-[10px] tracking-[0.35em] text-[#c9a86c] uppercase mb-2 font-medium">
+            <p className="text-xs tracking-[0.35em] text-[#c9a86c] uppercase mb-4 font-medium">
               {t("label")}
             </p>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-white leading-[1.1] mb-2">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-[1.1] mb-4">
               {t("title")}
             </h2>
-            <p className="text-white/70 leading-relaxed mb-5 max-w-md text-sm">
+            <p className="text-white/70 leading-relaxed mb-8 max-w-md text-base">
               {t("description")}
             </p>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
               {contactInfo.map((item, index) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                  className="flex items-start gap-3"
+                  className="flex items-start gap-4"
                 >
-                  <div className="w-10 h-10 bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                    <item.icon className="w-4 h-4 text-[#c9a86c]" />
+                  <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                    <item.icon className="w-5 h-5 text-[#c9a86c]" />
                   </div>
                   <div>
-                    <div className="text-[10px] tracking-[0.15em] uppercase text-[#c9a86c] mb-0.5">{item.label}</div>
-                    <div className="text-white/90 text-sm">{item.value}</div>
+                    <div className="text-xs tracking-[0.15em] uppercase text-[#c9a86c] mb-1">{item.label}</div>
+                    <div className="text-white/90">{item.value}</div>
                   </div>
                 </motion.div>
               ))}
@@ -70,15 +70,15 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="bg-[#f7f4ef] p-5 md:p-8"
+            className="bg-[#f7f4ef] p-6 md:p-8"
           >
-            <h3 className="text-xl font-serif text-[#1f1a17] mb-1">{t("formTitle")}</h3>
-            <p className="text-[#6b5e52] text-sm mb-4">{t("formSubtitle")}</p>
+            <h3 className="text-2xl font-serif text-[#1f1a17] mb-2">{t("formTitle")}</h3>
+            <p className="text-[#6b5e52] text-base mb-6">{t("formSubtitle")}</p>
 
             {submitted ? (
               <div className="flex items-center gap-3 p-4 bg-[#5e6b3a]/10 text-[#5e6b3a]">
-                <Check className="w-4 h-4" />
-                <span className="text-sm">{t("formSuccess")}</span>
+                <Check className="w-5 h-5" />
+                <span className="text-base">{t("formSuccess")}</span>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-3">
@@ -86,7 +86,7 @@ export default function ContactSection() {
                   <input
                     type="text"
                     placeholder={t("form.name")}
-                    className="w-full px-3 py-3 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors text-sm"
+                    className="w-full px-3 py-3 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors text-base"
                     required
                   />
                   <input
@@ -94,21 +94,21 @@ export default function ContactSection() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={t("form.email")}
-                    className="w-full px-3 py-3 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors text-sm"
+                    className="w-full px-3 py-3 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors text-base"
                     required
                   />
                 </div>
                 <textarea
                   rows={3}
                   placeholder={t("form.message")}
-                  className="w-full px-3 py-3 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors resize-none text-sm"
+                  className="w-full px-3 py-3 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors resize-none text-base"
                   required
                 />
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-[#7a5e12] text-white font-semibold tracking-[0.1em] uppercase hover:bg-[#5a450e] transition-all flex items-center justify-center gap-2 text-sm"
+                  className="w-full px-6 py-3 bg-[#7a5e12] text-white font-semibold tracking-[0.1em] uppercase hover:bg-[#5a450e] transition-all flex items-center justify-center gap-2 text-base"
                 >
-                  <Send size={16} />
+                  <Send size={18} />
                   {t("form.send")}
                 </button>
               </form>
