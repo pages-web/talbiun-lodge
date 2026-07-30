@@ -27,7 +27,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section ref={ref} className="h-[calc(100vh-4rem)] min-h-[calc(100vh-4rem)] snap-start flex items-center justify-center bg-[#1f1a17] py-4 lg:py-0">
+    <section ref={ref} className="h-[calc(100vh-5rem)] min-h-[calc(100vh-5rem)] snap-start flex items-center justify-center bg-[#1f1a17] py-4 lg:py-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
           <motion.div
@@ -35,13 +35,13 @@ export default function ContactSection() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <p className="text-xs tracking-[0.35em] text-[#c9a86c] uppercase mb-4 font-medium">
+            <p className="text-sm tracking-[0.35em] text-[#c9a86c] uppercase mb-4 font-medium">
               {t("label")}
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-[1.1] mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.1] mb-4">
               {t("title")}
             </h2>
-            <p className="text-white/70 leading-relaxed mb-8 max-w-md text-base">
+            <p className="text-white/70 leading-relaxed mb-8 max-w-md text-lg">
               {t("description")}
             </p>
 
@@ -58,8 +58,8 @@ export default function ContactSection() {
                     <item.icon className="w-5 h-5 text-[#c9a86c]" />
                   </div>
                   <div>
-                    <div className="text-xs tracking-[0.15em] uppercase text-[#c9a86c] mb-1">{item.label}</div>
-                    <div className="text-white/90">{item.value}</div>
+                    <div className="text-sm tracking-[0.15em] uppercase text-[#c9a86c] mb-1">{item.label}</div>
+                    <div className="text-white/90 text-lg">{item.value}</div>
                   </div>
                 </motion.div>
               ))}
@@ -70,23 +70,23 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="bg-[#f7f4ef] p-6 md:p-8"
+            className="bg-[#f7f4ef] p-5 md:p-6"
           >
-            <h3 className="text-2xl font-serif text-[#1f1a17] mb-2">{t("formTitle")}</h3>
-            <p className="text-[#6b5e52] text-base mb-6">{t("formSubtitle")}</p>
+            <h3 className="text-3xl font-serif text-[#1f1a17] mb-2">{t("formTitle")}</h3>
+            <p className="text-[#6b5e52] text-lg mb-4">{t("formSubtitle")}</p>
 
             {submitted ? (
               <div className="flex items-center gap-3 p-4 bg-[#5e6b3a]/10 text-[#5e6b3a]">
                 <Check className="w-5 h-5" />
-                <span className="text-base">{t("formSuccess")}</span>
+                <span className="text-lg">{t("formSuccess")}</span>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <form onSubmit={handleSubmit} className="space-y-2.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <input
                     type="text"
                     placeholder={t("form.name")}
-                    className="w-full px-3 py-3 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors text-base"
+                    className="w-full px-3 py-2.5 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors text-lg"
                     required
                   />
                   <input
@@ -94,21 +94,21 @@ export default function ContactSection() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={t("form.email")}
-                    className="w-full px-3 py-3 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors text-base"
+                    className="w-full px-3 py-2.5 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors text-lg"
                     required
                   />
                 </div>
                 <textarea
-                  rows={3}
+                  rows={2}
                   placeholder={t("form.message")}
-                  className="w-full px-3 py-3 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors resize-none text-base"
+                  className="w-full px-3 py-2.5 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors resize-none text-lg"
                   required
                 />
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-[#7a5e12] text-white font-semibold tracking-[0.1em] uppercase hover:bg-[#5a450e] transition-all flex items-center justify-center gap-2 text-base"
+                  className="w-full px-6 py-3 bg-[#7a5e12] text-white font-semibold tracking-[0.1em] uppercase hover:bg-[#5a450e] transition-all flex items-center justify-center gap-2 text-lg"
                 >
-                  <Send size={18} />
+                  <Send size={20} />
                   {t("form.send")}
                 </button>
               </form>

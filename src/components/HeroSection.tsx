@@ -17,7 +17,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen snap-start flex flex-col items-center justify-center pt-16 pb-16 overflow-hidden">
+    <section className="relative h-screen snap-start flex flex-col items-center justify-center pt-20 pb-20 overflow-hidden">
       {/* Full background image */}
       <div className="absolute inset-0">
         <Image
@@ -41,7 +41,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-sm tracking-[0.35em] text-[#c9a86c] uppercase mb-4 font-medium"
+          className="text-base tracking-[0.35em] text-[#c9a86c] uppercase mb-4 font-medium"
         >
           {t("subtitle")}
         </motion.p>
@@ -50,7 +50,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-serif text-white leading-[1.05] mb-6 text-shadow-hero"
+          className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-serif text-white leading-[1.05] mb-6 text-shadow-hero"
         >
           {t("title")}
         </motion.h1>
@@ -59,7 +59,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-lg md:text-xl text-white/85 mb-8 max-w-2xl mx-auto font-light tracking-wide"
+          className="text-xl md:text-2xl text-white/85 mb-8 max-w-2xl mx-auto font-light tracking-wide"
         >
           {t("description")}
         </motion.p>
@@ -72,13 +72,13 @@ export default function HeroSection() {
         >
           <Link
             href="/accommodation"
-            className="inline-block px-8 py-3 bg-[#c9a86c] text-[#1f1a17] text-base tracking-[0.15em] uppercase rounded-lg hover:bg-[#b89a60] transition-all shadow-lg font-semibold"
+            className="inline-block px-8 py-3 bg-[#c9a86c] text-[#1f1a17] text-lg tracking-[0.15em] uppercase rounded-lg hover:bg-[#b89a60] transition-all shadow-lg font-semibold"
           >
             {t("cta")}
           </Link>
           <Link
             href="/about"
-            className="inline-block px-8 py-3 border-2 border-white/60 text-white text-base tracking-[0.15em] uppercase rounded-lg hover:bg-white/10 transition-all backdrop-blur-sm"
+            className="inline-block px-8 py-3 border-2 border-white/60 text-white text-lg tracking-[0.15em] uppercase rounded-lg hover:bg-white/10 transition-all backdrop-blur-sm"
           >
             {t("learnMore")}
           </Link>
