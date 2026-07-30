@@ -49,7 +49,7 @@ export default async function LocaleLayout({
           <ApolloClientProvider>
             <LocalAuthProvider>
               <Header />
-              <main className="flex-1 pt-16 h-screen overflow-y-auto snap-y snap-proximity scroll-smooth">
+              <main className="flex-1 h-screen overflow-y-auto snap-y snap-proximity scroll-pt-16 scroll-smooth">
                 {children}
                 <Footer />
               </main>

@@ -27,7 +27,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section ref={ref} className="h-full min-h-full snap-start flex items-center justify-center bg-[#1f1a17] py-6 lg:py-0">
+    <section ref={ref} className="h-[calc(100vh-4rem)] min-h-[calc(100vh-4rem)] snap-start flex items-center justify-center bg-[#1f1a17] py-6 lg:py-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <motion.div

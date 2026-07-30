@@ -18,7 +18,7 @@ export default function ServicesSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="h-full min-h-full snap-start flex items-center justify-center bg-[#f7f4ef] py-6 lg:py-0">
+    <section ref={ref} className="h-[calc(100vh-4rem)] min-h-[calc(100vh-4rem)] snap-start flex items-center justify-center bg-[#f7f4ef] py-6 lg:py-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center max-w-3xl mx-auto mb-8">
           <motion.p
