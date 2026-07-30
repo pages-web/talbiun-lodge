@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[2254,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/007n82w.ba2~-.js","/_next/static/chunks/0m8hu_a_ki.js.js","/_next/static/chunks/0a-rmjs6mg4jq.js","/_next/static/chunks/0fdz-d~6jtvxu.js"],"default"]
+2:I[2254,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/007n82w.ba2~-.js","/_next/static/chunks/0-bryq-m0.8pp.js","/_next/static/chunks/0a-rmjs6mg4jq.js","/_next/static/chunks/0fdz-d~6jtvxu.js"],"default"]
 3:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"slug":"mongolian-ger","locale":"en"}],[["$","script","script-0",{"src":"/_next/static/chunks/0fdz-d~6jtvxu.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"4aRgw4d1P8AfgeoytgYxs"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"slug":"mongolian-ger","locale":"en"}],[["$","script","script-0",{"src":"/_next/static/chunks/0fdz-d~6jtvxu.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"pM5nZRI5y5d1lQfSGRpcb"}
 5:null

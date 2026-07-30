@@ -19,10 +19,12 @@ export default function Header() {
 
   useEffect(() => {
     if (!isHome) return;
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const main = document.getElementById("main-scroll");
+    if (!main) return;
+    const handleScroll = () => setScrolled(main.scrollTop > 50);
     handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    main.addEventListener("scroll", handleScroll, { passive: true });
+    return () => main.removeEventListener("scroll", handleScroll);
   }, [isHome]);
 
   const navLinks = [
