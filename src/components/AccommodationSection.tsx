@@ -90,46 +90,48 @@ export default function AccommodationSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="group bg-[#f7f4ef] natural-shadow natural-shadow-hover transition-all"
+              className="group bg-[#f7f4ef] natural-shadow natural-shadow-hover transition-all flex flex-col"
             >
-              <Link href={`/accommodation/${ger.id}`} className="block">
-                <div className="relative aspect-[16/6] overflow-hidden">
+              <Link href={`/accommodation/${ger.id}`} className="block flex flex-col h-full">
+                <div className="relative aspect-[16/5] overflow-hidden">
                   <img
                     src={ger.image}
                     alt={t(`${ger.key}.name`)}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm text-[#1f1a17] px-3 py-1.5 font-serif text-lg">
+                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm text-[#1f1a17] px-3 py-1.5 font-serif text-base">
                     {t(`${ger.key}.price`)}
-                    <span className="text-sm font-sans font-normal text-[#6b5e52] ml-1">/{t("price")}</span>
+                    <span className="text-xs font-sans font-normal text-[#6b5e52] ml-1">/{t("price")}</span>
                   </div>
                 </div>
 
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors">
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-baseline justify-between gap-3 mb-1">
+                    <h3 className="text-xl font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors leading-tight">
                       {t(`${ger.key}.name`)}
                     </h3>
-                    <span className="text-sm text-[#6b5e52]">{ger.size}</span>
+                    <span className="text-sm text-[#6b5e52] shrink-0">{ger.size}</span>
                   </div>
 
-                  <p className="text-[#6b5e52] mb-3 leading-relaxed text-base line-clamp-1">{t(`${ger.key}.description`)}</p>
+                  <p className="text-[#6b5e52] mb-4 leading-relaxed text-base line-clamp-2">{t(`${ger.key}.description`)}</p>
 
-                  <div className="flex flex-wrap gap-1.5 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {ger.amenities.map((amenity) => (
                       <span
                         key={amenity}
-                        className="px-2 py-0.5 bg-white text-[#4a3f36] text-sm tracking-wide"
+                        className="px-2.5 py-1 bg-white text-[#4a3f36] text-sm tracking-wide"
                       >
                         {amenity}
                       </span>
                     ))}
                   </div>
 
-                  <span className="inline-flex items-center text-base font-semibold text-[#7a5e12] group-hover:text-[#5a450e] transition-colors">
-                    {t("bookNow")}
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </span>
+                  <div className="mt-auto">
+                    <span className="inline-flex items-center text-base font-semibold text-[#7a5e12] group-hover:text-[#5a450e] transition-colors">
+                      {t("bookNow")}
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </div>
                 </div>
               </Link>
             </motion.div>
