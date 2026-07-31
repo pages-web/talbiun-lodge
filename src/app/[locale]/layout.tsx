@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import ApolloClientProvider from "@/lib/apollo/provider";
+import { AuthProvider } from "@/lib/auth/AuthContext";
 import { LocalAuthProvider } from "@/lib/auth/LocalAuthContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,7 +13,6 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
 });
-
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -21,7 +21,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Talbiun Lodge | Mongolian Steppe Retreat",
-  description: "Experience authentic Mongolian steppe life in luxury gers. Traditional hospitality meets modern comfort on the open grasslands.",
+  description: "Experience authentic Mongolian steppe life in luxury gers.",
   metadataBase: new URL("https://talbiun-lodge.vercel.app"),
 };
 
@@ -38,7 +38,6 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   const messages = (await import(`../../../messages/${locale}.json`)).default;
-
   return (
     <html
       lang={locale}
@@ -47,15 +46,15 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col font-sans bg-[#f7f4ef] text-[#1f1a17]">
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ApolloClientProvider>
-            <LocalAuthProvider>
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </LocalAuthProvider>
+            <AuthProvider>
+              <LocalAuthProvider>
+                <Header />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </LocalAuthProvider>
+            </AuthProvider>
           </ApolloClientProvider>
         </NextIntlClientProvider>
-        
-        {/* Natural film grain overlay */}
         <div className="grain-overlay" />
       </body>
     </html>

@@ -1,71 +1,95 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useQuery } from "@apollo/client/react";
+import { CP_POSTS } from "@/graphql/cms/queries/post";
+import type {
+  CpPostsData,
+  CpPostsVariables,
+} from "@/graphql/cms/queries/post";
 
 export default function AboutPage() {
-  const t = useTranslations("about");
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const locale = useLocale();
+
+  const { data, loading } = useQuery<CpPostsData, CpPostsVariables>(
+    CP_POSTS,
+    {
+      variables: { language: locale },
+    }
+  );  
+
+  const mainPost = data?.cpPosts?.[0];
+
+  const thumbnailUrl = mainPost?.thumbnail?.url
+    ? mainPost.thumbnail.url.startsWith("http")
+      ? mainPost.thumbnail.url
+      : `https://erxes-saas.s3.amazonaws.com/${mainPost.thumbnail.url}`
+    : "/images/about-ger.jpg";
+
+  const content = mainPost?.content
+    ?.replace(/<h1[^>]*>.*?<\/h1>/gi, "")
+    .trim();
 
   return (
-    <div className="pt-24 pb-24 bg-[#f7f4ef] min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#f7f4ef] min-h-screen py-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        {/* Heading */}
         <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.3em] text-[#7a5e12] uppercase mb-4 font-medium">
-            {t("label")}
+          <p className="uppercase tracking-[0.4em] text-[#9c7c3c] text-sm mb-6">
+            About Us
           </p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-serif text-[#1f1a17] mb-4"
-          >
-            {t("title")}
-          </motion.h1>
+
+          <h1 className="font-serif text-[#1f1a17] text-5xl md:text-6xl lg:text-7xl font-light leading-tight">
+            {mainPost?.title || "A Ger Retreat on the Open Steppe"}
+          </h1>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        {/* Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative aspect-[4/3] rounded-2xl overflow-hidden natural-shadow"
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
           >
             <img
-              src="/images/about-ger.jpg"
-              alt="Traditional Mongolian Ger"
-              className="w-full h-full object-cover"
+              src={thumbnailUrl}
+              alt={mainPost?.title || "About Us"}
+              className="w-full rounded-3xl shadow-lg object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src =
+                  "/images/about-ger.jpg";
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1f1a17]/20 to-transparent" />
           </motion.div>
 
+          {/* Text */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="prose prose-lg max-w-none text-[#4a3f36]"
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="prose prose-lg max-w-none
+                       prose-p:text-[#4a3f36]
+                       prose-p:leading-[1.9]
+                       prose-p:text-[1.15rem]
+                       prose-headings:hidden"
           >
-            <p className="text-xl leading-relaxed mb-8">
-              {t("description")}
-            </p>
-            <p className="mb-6">
-              Our lodge is built on the principles of sustainable tourism and cultural preservation. 
-              We work closely with local nomadic families to offer authentic experiences that 
-              benefit the community while providing our guests with unforgettable memories.
-            </p>
-            <p className="mb-6">
-              Each ger in our camp is handcrafted using traditional techniques passed down through 
-              generations. The felt, wood, and canvas are all locally sourced, ensuring that your 
-              stay supports the local economy and preserves Mongolian craftsmanship.
-            </p>
-            <p>
-              Whether you are seeking adventure, tranquility, or cultural immersion, Talbiun Lodge 
-              offers a unique gateway to the heart of Mongolia.
-            </p>
+            {loading ? (
+              <div className="animate-pulse space-y-4">
+                <div className="h-5 bg-[#d8c9b3] rounded w-full" />
+                <div className="h-5 bg-[#d8c9b3] rounded w-5/6" />
+                <div className="h-5 bg-[#d8c9b3] rounded w-full" />
+                <div className="h-5 bg-[#d8c9b3] rounded w-4/5" />
+              </div>
+            ) : content ? (
+              <div dangerouslySetInnerHTML={{ __html: content }} />
+            ) : (
+              <p>Content coming soon.</p>
+            )}
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

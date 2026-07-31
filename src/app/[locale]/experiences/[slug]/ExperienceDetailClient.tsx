@@ -54,7 +54,7 @@ export default function ExperienceDetailClient({
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           href="/experiences"
-          className="inline-flex items-center text-sm text-[#7a5e12] hover:text-[#5a450e] transition-colors font-medium mb-10"
+          className="inline-flex items-center text-sm text-[#2663EB] hover:text-[#1E4CC1] transition-colors font-medium mb-10"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           {t("backToExperiences")}
@@ -96,3 +96,4 @@ export default function ExperienceDetailClient({
     </div>
   );
 }
+

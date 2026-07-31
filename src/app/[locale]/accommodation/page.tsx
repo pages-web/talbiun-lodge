@@ -41,7 +41,7 @@ export default function AccommodationPage() {
     <div className="pt-24 pb-24 bg-[#f7f4ef] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.3em] text-[#7a5e12] uppercase mb-4 font-medium">
+          <p className="text-xs tracking-[0.3em] text-[#2663EB] uppercase mb-4 font-medium">
             {t("subtitle")}
           </p>
           <h1 className="text-4xl md:text-5xl font-serif text-[#1f1a17] mb-4">
@@ -75,7 +75,7 @@ export default function AccommodationPage() {
                 </div>
 
                 <div className="p-6 pb-0">
-                  <h3 className="text-xl font-bold text-[#1f1a17] mb-2 group-hover:text-[#7a5e12] transition-colors">{t(`${ger.key}.name`)}</h3>
+                  <h3 className="text-xl font-bold text-[#1f1a17] mb-2 group-hover:text-[#2663EB] transition-colors">{t(`${ger.key}.name`)}</h3>
                   <p className="text-[#6b5e52] mb-4">{t(`${ger.key}.description`)}</p>
 
                   <div className="flex gap-4 mb-4 text-sm text-[#6b5e52]">
@@ -105,7 +105,7 @@ export default function AccommodationPage() {
               <div className="px-6 pb-6">
                 <Link
                   href={`/accommodation/${ger.id}`}
-                  className="flex items-center justify-center gap-2 w-full text-center py-3 bg-[#7a5e12] text-white rounded-lg hover:bg-[#5a450e] transition-all font-medium"
+                  className="flex items-center justify-center gap-2 w-full text-center py-3 bg-[#2663EB] text-white rounded-lg hover:bg-[#1E4CC1] transition-all font-medium"
                 >
                   {t("bookNow")}
                   <ArrowRight size={16} />
@@ -118,3 +118,4 @@ export default function AccommodationPage() {
     </div>
   );
 }
+

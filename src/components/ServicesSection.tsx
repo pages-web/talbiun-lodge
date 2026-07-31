@@ -25,7 +25,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-xs tracking-[0.35em] text-[#7a5e12] uppercase mb-5 font-medium"
+            className="text-xs tracking-[0.35em] text-[#2663EB] uppercase mb-5 font-medium"
           >
             {t("label")}
           </motion.p>
@@ -68,7 +68,7 @@ export default function ServicesSection() {
                 <div className="text-xs tracking-[0.2em] uppercase text-[#c9a86c] font-medium">
                   {String(index + 1).padStart(2, "0")}
                 </div>
-                <h3 className="text-xl font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors">
+                <h3 className="text-xl font-bold text-[#1f1a17] group-hover:text-[#2663EB] transition-colors">
                   {t(`experiences.${exp.key}.title`)}
                 </h3>
                 <p className="text-[#6b5e52] leading-relaxed">
@@ -82,3 +82,4 @@ export default function ServicesSection() {
     </section>
   );
 }
+

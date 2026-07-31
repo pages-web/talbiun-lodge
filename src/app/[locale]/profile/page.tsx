@@ -34,7 +34,7 @@ export default function ProfilePage() {
       <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center bg-[#f7f4ef] px-4">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-[#1f1a17] mb-4">{at("login")}</h1>
-          <Link href="/login" className="px-8 py-3 bg-[#7a5e12] text-white font-bold rounded-lg hover:bg-[#5a450e] transition-all">
+          <Link href="/login" className="px-8 py-3 bg-[#2663EB] text-white font-bold rounded-lg hover:bg-[#1E4CC1] transition-all">
             {at("login")}
           </Link>
         </div>
@@ -75,7 +75,7 @@ export default function ProfilePage() {
           </div>
           <button
             onClick={() => { logout(); router.push("/"); }}
-            className="flex items-center justify-center gap-2 px-6 py-2.5 border border-[#7a5e12] text-[#7a5e12] rounded-lg hover:bg-[#7a5e12] hover:text-white transition-all"
+            className="flex items-center justify-center gap-2 px-6 py-2.5 border border-[#2663EB] text-[#2663EB] rounded-lg hover:bg-[#2663EB] hover:text-white transition-all"
           >
             <LogOut size={18} />
             {at("logout")}
@@ -83,7 +83,7 @@ export default function ProfilePage() {
         </div>
 
         {message && (
-          <div className="mb-6 p-3 bg-[#efe9df] text-[#7a5e12] rounded-lg text-sm">{message}</div>
+          <div className="mb-6 p-3 bg-[#efe9df] text-[#2663EB] rounded-lg text-sm">{message}</div>
         )}
 
         <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
@@ -97,8 +97,8 @@ export default function ProfilePage() {
               onClick={() => setTab(item.key as Tab)}
               className={`px-6 py-3 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
                 tab === item.key
-                  ? "bg-[#7a5e12] text-white"
-                  : "bg-white text-[#4a3f36] border border-[#d8c9b3] hover:border-[#7a5e12]"
+                  ? "bg-[#2663EB] text-white"
+                  : "bg-white text-[#4a3f36] border border-[#d8c9b3] hover:border-[#2663EB]"
               }`}
             >
               {item.label}
@@ -118,7 +118,7 @@ export default function ProfilePage() {
                       type="text"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#7a5e12] focus:outline-none"
+                      className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
                     />
                   </div>
                   <div>
@@ -127,7 +127,7 @@ export default function ProfilePage() {
                       type="text"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#7a5e12] focus:outline-none"
+                      className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -146,12 +146,12 @@ export default function ProfilePage() {
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#7a5e12] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="px-8 py-3 bg-[#7a5e12] text-white font-bold rounded-lg hover:bg-[#5a450e] transition-all"
+                  className="px-8 py-3 bg-[#2663EB] text-white font-bold rounded-lg hover:bg-[#1E4CC1] transition-all"
                 >
                   {t("save")}
                 </button>
@@ -167,7 +167,7 @@ export default function ProfilePage() {
                     type="password"
                     value={currentPassword}
                     onChange={(e) => setCurrentPassword(e.target.value)}
-                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#7a5e12] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
                     required
                   />
                 </div>
@@ -177,13 +177,13 @@ export default function ProfilePage() {
                     type="password"
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
-                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#7a5e12] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
                     required
                   />
                 </div>
                 <button
                   type="submit"
-                  className="px-8 py-3 bg-[#7a5e12] text-white font-bold rounded-lg hover:bg-[#5a450e] transition-all"
+                  className="px-8 py-3 bg-[#2663EB] text-white font-bold rounded-lg hover:bg-[#1E4CC1] transition-all"
                 >
                   {t("changePassword")}
                 </button>
@@ -209,7 +209,7 @@ export default function ProfilePage() {
                         <div className="flex flex-wrap gap-4 text-sm text-[#6b5e52]">
                           <span className="flex items-center gap-1"><Calendar size={14} /> {booking.checkIn} → {booking.checkOut}</span>
                           <span>{booking.adults} {t("adults")}, {booking.children} {t("children")}</span>
-                          <span className="font-medium text-[#7a5e12]">${booking.totalPrice}</span>
+                          <span className="font-medium text-[#2663EB]">${booking.totalPrice}</span>
                         </div>
                         <div className="inline-flex items-center px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-medium">
                           {t("active")}
@@ -246,7 +246,7 @@ export default function ProfilePage() {
                       <div className="flex flex-wrap gap-4 text-sm text-[#6b5e52]">
                         <span className="flex items-center gap-1"><Calendar size={14} /> {booking.checkIn} → {booking.checkOut}</span>
                         <span>{booking.adults} {t("adults")}, {booking.children} {t("children")}</span>
-                        <span className="font-medium text-[#7a5e12]">${booking.totalPrice}</span>
+                        <span className="font-medium text-[#2663EB]">${booking.totalPrice}</span>
                       </div>
                       <div className="inline-flex items-center px-3 py-1 bg-red-50 text-red-700 rounded-full text-xs font-medium">
                         {t("canceled")}
@@ -262,3 +262,4 @@ export default function ProfilePage() {
     </div>
   );
 }
+

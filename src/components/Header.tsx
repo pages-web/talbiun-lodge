@@ -38,11 +38,11 @@ export default function Header() {
     : "bg-[#f7f4ef]/95 backdrop-blur-md border-b border-[#d8c9b3]/50";
 
   const logoText = isTransparent ? "text-white" : "text-[#1f1a17]";
-  const logoSub = isTransparent ? "text-[#c9a86c]" : "text-[#7a5e12]";
+  const logoSub = isTransparent ? "text-[#c9a86c]" : "text-[#2663EB]";
   const mutedText = isTransparent
     ? "text-white/80 hover:text-white"
     : "text-[#4a3f36] hover:text-[#1f1a17]";
-  const activeText = isTransparent ? "text-[#c9a86c]" : "text-[#7a5e12]";
+  const activeText = isTransparent ? "text-[#c9a86c]" : "text-[#2663EB]";
   const iconColor = isTransparent ? "text-white" : "text-[#1f1a17]";
 
   return (
@@ -53,7 +53,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a86c] to-[#7a5e12] rounded-lg transform rotate-3 group-hover:rotate-6 transition-transform" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a86c] to-[#2663EB] rounded-lg transform rotate-3 group-hover:rotate-6 transition-transform" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-white font-bold text-lg">T</span>
               </div>
@@ -118,7 +118,7 @@ export default function Header() {
               className={`px-6 py-2.5 text-sm font-medium rounded-lg transition-all shadow-md ${
                 isTransparent
                   ? "bg-[#c9a86c] text-[#1f1a17] hover:bg-[#b89a60]"
-                  : "bg-[#7a5e12] text-white hover:bg-[#5a450e]"
+                  : "bg-[#2663EB] text-white hover:bg-[#1E4CC1]"
               }`}
             >
               {t("bookNow")}
@@ -138,7 +138,7 @@ export default function Header() {
                 className={`flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg transition-all ${
                   isTransparent
                     ? "border border-white/60 text-white hover:bg-white/10"
-                    : "border border-[#7a5e12] text-[#7a5e12] hover:bg-[#7a5e12] hover:text-white"
+                    : "border border-[#2663EB] text-[#2663EB] hover:bg-[#2663EB] hover:text-white"
                 }`}
               >
                 <User size={16} />
@@ -175,7 +175,7 @@ export default function Header() {
                 <>
                   <Link
                     href="/profile"
-                    className="flex items-center gap-2 text-[#7a5e12] font-medium"
+                    className="flex items-center gap-2 text-[#2663EB] font-medium"
                     onClick={() => setMobileOpen(false)}
                   >
                     <User size={16} />
@@ -192,7 +192,7 @@ export default function Header() {
               ) : (
                 <Link
                   href="/login"
-                  className="flex items-center gap-2 text-[#7a5e12] font-medium"
+                  className="flex items-center gap-2 text-[#2663EB] font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   <User size={16} />
@@ -201,8 +201,8 @@ export default function Header() {
               )}
             </div>
             <div className="flex gap-4 pt-2 border-t border-[#d8c9b3]/50">
-              <Link href={pathname} locale="en" className="text-sm text-[#7a5e12]">EN</Link>
-              <Link href={pathname} locale="mn" className="text-sm text-[#7a5e12]">MN</Link>
+              <Link href={pathname} locale="en" className="text-sm text-[#2663EB]">EN</Link>
+              <Link href={pathname} locale="mn" className="text-sm text-[#2663EB]">MN</Link>
             </div>
           </div>
         </div>
@@ -210,3 +210,4 @@ export default function Header() {
     </header>
   );
 }
+

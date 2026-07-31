@@ -58,7 +58,7 @@ export default function ContactSection() {
                     <item.icon className="w-5 h-5 text-[#c9a86c]" />
                   </div>
                   <div>
-                    <div className="text-xs tracking-[0.15em] uppercase text-[#c9a86c] mb-1">{item.label}</div>
+                    <div className="text-xs tracking-[0.15em] uppercase text-[#2663EB] mb-1">{item.label}</div>
                     <div className="text-white/90">{item.value}</div>
                   </div>
                 </motion.div>
@@ -86,7 +86,7 @@ export default function ContactSection() {
                   <input
                     type="text"
                     placeholder={t("form.name")}
-                    className="w-full px-5 py-4 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors"
+                    className="w-full px-5 py-4 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#2663EB] transition-colors"
                     required
                   />
                   <input
@@ -94,19 +94,19 @@ export default function ContactSection() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={t("form.email")}
-                    className="w-full px-5 py-4 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors"
+                    className="w-full px-5 py-4 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#2663EB] transition-colors"
                     required
                   />
                 </div>
                 <textarea
                   rows={4}
                   placeholder={t("form.message")}
-                  className="w-full px-5 py-4 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#7a5e12] transition-colors resize-none"
+                  className="w-full px-5 py-4 bg-white border border-[#d8c9b3] text-[#1f1a17] placeholder-[#a09080] focus:outline-none focus:border-[#2663EB] transition-colors resize-none"
                   required
                 />
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-[#7a5e12] text-white font-semibold tracking-[0.1em] uppercase hover:bg-[#5a450e] transition-all flex items-center justify-center gap-2"
+                  className="w-full px-8 py-4 bg-[#2663EB] text-white font-semibold tracking-[0.1em] uppercase hover:bg-[#1E4CC1] transition-all flex items-center justify-center gap-2"
                 >
                   <Send size={18} />
                   {t("form.send")}

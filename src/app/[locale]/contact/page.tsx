@@ -22,7 +22,7 @@ export default function ContactPage() {
     <div className="pt-24 pb-24 bg-[#f7f4ef] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.3em] text-[#7a5e12] uppercase mb-4 font-medium">
+          <p className="text-xs tracking-[0.3em] text-[#2663EB] uppercase mb-4 font-medium">
             {t("label")}
           </p>
           <motion.h1
@@ -53,7 +53,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center flex-shrink-0 border border-[#d8c9b3]">
-                  <MapPin size={24} className="text-[#7a5e12]" />
+                  <MapPin size={24} className="text-[#2663EB]" />
                 </div>
                 <div>
                   <h3 className="text-[#1f1a17] font-medium mb-1">{t("location")}</h3>
@@ -63,7 +63,7 @@ export default function ContactPage() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center flex-shrink-0 border border-[#d8c9b3]">
-                  <Phone size={24} className="text-[#7a5e12]" />
+                  <Phone size={24} className="text-[#2663EB]" />
                 </div>
                 <div>
                   <h3 className="text-[#1f1a17] font-medium mb-1">Phone</h3>
@@ -73,7 +73,7 @@ export default function ContactPage() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center flex-shrink-0 border border-[#d8c9b3]">
-                  <Mail size={24} className="text-[#7a5e12]" />
+                  <Mail size={24} className="text-[#2663EB]" />
                 </div>
                 <div>
                   <h3 className="text-[#1f1a17] font-medium mb-1">Email</h3>
@@ -83,7 +83,7 @@ export default function ContactPage() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center flex-shrink-0 border border-[#d8c9b3]">
-                  <Clock size={24} className="text-[#7a5e12]" />
+                  <Clock size={24} className="text-[#2663EB]" />
                 </div>
                 <div>
                   <h3 className="text-[#1f1a17] font-medium mb-1">Season</h3>
@@ -99,17 +99,17 @@ export default function ContactPage() {
                   href="https://facebook.com/talbiunlodge"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center hover:bg-[#7a5e12]/10 transition-colors border border-[#d8c9b3]"
+                  className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center hover:bg-[#2663EB]/10 transition-colors border border-[#d8c9b3]"
                 >
-                  <Facebook size={24} className="text-[#7a5e12]" />
+                  <Facebook size={24} className="text-[#2663EB]" />
                 </a>
                 <a
                   href="https://instagram.com/talbiunlodge"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center hover:bg-[#7a5e12]/10 transition-colors border border-[#d8c9b3]"
+                  className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center hover:bg-[#2663EB]/10 transition-colors border border-[#d8c9b3]"
                 >
-                  <Instagram size={24} className="text-[#7a5e12]" />
+                  <Instagram size={24} className="text-[#2663EB]" />
                 </a>
               </div>
             </div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] placeholder-[#6b5e52] focus:border-[#7a5e12] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] placeholder-[#6b5e52] focus:border-[#2663EB] focus:outline-none"
                     placeholder="John Doe"
                     required
                   />
@@ -164,7 +164,7 @@ export default function ContactPage() {
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] placeholder-[#6b5e52] focus:border-[#7a5e12] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] placeholder-[#6b5e52] focus:border-[#2663EB] focus:outline-none"
                     placeholder="john@example.com"
                     required
                   />
@@ -176,7 +176,7 @@ export default function ContactPage() {
                     rows={5}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] placeholder-[#6b5e52] focus:border-[#7a5e12] focus:outline-none resize-none"
+                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] placeholder-[#6b5e52] focus:border-[#2663EB] focus:outline-none resize-none"
                     placeholder="How can we help you?"
                     required
                   />
@@ -184,7 +184,7 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#7a5e12] text-white font-bold rounded-lg hover:bg-[#5a450e] transition-all flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-[#2663EB] text-white font-bold rounded-lg hover:bg-[#1E4CC1] transition-all flex items-center justify-center gap-2"
                 >
                   <Send size={20} />
                   {t("form.send")}
@@ -197,3 +197,4 @@ export default function ContactPage() {
     </div>
   );
 }
+

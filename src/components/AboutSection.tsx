@@ -26,7 +26,7 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="lg:col-span-6"
           >
-            <p className="text-xs tracking-[0.35em] text-[#7a5e12] uppercase mb-5 font-medium">
+            <p className="text-xs tracking-[0.35em] text-[#2663EB] uppercase mb-5 font-medium">
               {t("label")}
             </p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#1f1a17] leading-[1.1] mb-8">
@@ -42,9 +42,9 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <Link
+            <Link 
               href="/about"
-              className="inline-flex items-center text-sm tracking-[0.1em] uppercase text-[#7a5e12] hover:text-[#5a450e] transition-colors font-semibold group"
+              className="inline-flex items-center text-sm tracking-[0.1em] uppercase text-[#2663EB] hover:text-[#1E4CC1] transition-colors font-semibold group"
             >
               {t("cta")}
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -86,3 +86,4 @@ export default function AboutSection() {
     </section>
   );
 }
+

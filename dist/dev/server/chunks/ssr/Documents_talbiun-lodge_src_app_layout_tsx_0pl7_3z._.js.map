@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/BayartsetsegNyamragc/Documents/talbiun-lodge/src/app/layout.tsx"],"sourcesContent":["// Minimal root layout — locale-specific layout in [locale]/layout.tsx handles html/body.\r\nexport default function RootLayout({\r\n  children,\r\n}: {\r\n  children: React.ReactNode;\r\n}) {\r\n  return children;\r\n}\r\n"],"names":["RootLayout","children"],"mappings":"AAAA,yFAAyF;;;;;AAC1E,SAASA,WAAW,EACjCC,QAAQ,EAGT;IACC,OAAOA;AACT"}}]
+}

@@ -62,7 +62,7 @@ export default function ExperiencesPage() {
     <div className="pt-28 pb-28 bg-[#f7f4ef] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <p className="text-xs tracking-[0.35em] text-[#7a5e12] uppercase mb-5 font-medium">
+          <p className="text-xs tracking-[0.35em] text-[#2663EB] uppercase mb-5 font-medium">
             {t("label")}
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#1f1a17] leading-[1.1] mb-6">
@@ -96,7 +96,7 @@ export default function ExperiencesPage() {
                   <span>{formatDate(article.date, t("locale") || "en")}</span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#1f1a17] mb-3 group-hover:text-[#7a5e12] transition-colors">
+                <h3 className="text-xl font-bold text-[#1f1a17] mb-3 group-hover:text-[#2663EB] transition-colors">
                   {t(`articles.${article.key}.title`)}
                 </h3>
 
@@ -104,7 +104,7 @@ export default function ExperiencesPage() {
                   {t(`articles.${article.key}.excerpt`)}
                 </p>
 
-                <span className="inline-flex items-center text-sm font-semibold text-[#7a5e12] group-hover:text-[#5a450e] transition-colors">
+                <span className="inline-flex items-center text-sm font-semibold text-[#2663EB] group-hover:text-[#1E4CC1] transition-colors">
                   {t("readMore")}
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -116,3 +116,4 @@ export default function ExperiencesPage() {
     </div>
   );
 }
+

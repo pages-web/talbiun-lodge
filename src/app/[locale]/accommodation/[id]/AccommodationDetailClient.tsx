@@ -100,7 +100,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
   return (
     <div className="pt-24 pb-24 bg-[#f7f4ef] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Link href="/accommodation" className="inline-flex items-center text-[#7a5e12] hover:text-[#5a450e] mb-8 font-medium">
+        <Link href="/accommodation" className="inline-flex items-center text-[#2663EB] hover:text-[#1E4CC1] mb-8 font-medium">
           <ArrowLeft size={20} className="mr-2" />
           {t("detail.backToGers")}
         </Link>
@@ -127,7 +127,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
             <div className="bg-white rounded-2xl p-6 border border-[#d8c9b3]/50 natural-shadow relative">
               <div className="flex items-center justify-between mb-6">
                 <span className="text-[#6b5e52]">{t("detail.pricePerNight")}</span>
-                <span className="text-3xl font-bold text-[#7a5e12]">{t(`${id}.price`)}</span>
+                <span className="text-3xl font-bold text-[#2663EB]">{t(`${id}.price`)}</span>
               </div>
 
               {submitted ? (
@@ -143,7 +143,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                   <h3 className="text-lg font-bold text-[#1f1a17] mb-3">{t("detail.signInToBook")}</h3>
                   <Link
                     href="/login"
-                    className="inline-block px-8 py-3 bg-[#7a5e12] text-white font-bold rounded-lg hover:bg-[#5a450e] transition-all"
+                    className="inline-block px-8 py-3 bg-[#2663EB] text-white font-bold rounded-lg hover:bg-[#1E4CC1] transition-all"
                   >
                     {t("detail.signInToBook")}
                   </Link>
@@ -163,7 +163,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                             setCheckIn(e.target.value);
                             if (checkOut && e.target.value >= checkOut) setCheckOut("");
                           }}
-                          className="w-full pl-10 pr-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#7a5e12] focus:outline-none"
+                          className="w-full pl-10 pr-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
                           required
                         />
                       </div>
@@ -177,7 +177,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                           value={checkOut}
                           min={checkIn ? new Date(new Date(checkIn).getTime() + 86400000).toISOString().split("T")[0] : today}
                           onChange={(e) => setCheckOut(e.target.value)}
-                          className="w-full pl-10 pr-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#7a5e12] focus:outline-none"
+                          className="w-full pl-10 pr-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
                           required
                         />
                       </div>
@@ -191,7 +191,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                         <button
                           type="button"
                           onClick={() => setAdults(Math.max(1, adults - 1))}
-                          className="p-3 text-[#6b5e52] hover:text-[#7a5e12] transition-colors"
+                          className="p-3 text-[#6b5e52] hover:text-[#2663EB] transition-colors"
                         >
                           <Minus size={16} />
                         </button>
@@ -199,7 +199,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                         <button
                           type="button"
                           onClick={() => setAdults(adults + 1)}
-                          className="p-3 text-[#6b5e52] hover:text-[#7a5e12] transition-colors"
+                          className="p-3 text-[#6b5e52] hover:text-[#2663EB] transition-colors"
                         >
                           <Plus size={16} />
                         </button>
@@ -211,7 +211,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                         <button
                           type="button"
                           onClick={() => setChildren(Math.max(0, children - 1))}
-                          className="p-3 text-[#6b5e52] hover:text-[#7a5e12] transition-colors"
+                          className="p-3 text-[#6b5e52] hover:text-[#2663EB] transition-colors"
                         >
                           <Minus size={16} />
                         </button>
@@ -219,7 +219,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                         <button
                           type="button"
                           onClick={() => setChildren(children + 1)}
-                          className="p-3 text-[#6b5e52] hover:text-[#7a5e12] transition-colors"
+                          className="p-3 text-[#6b5e52] hover:text-[#2663EB] transition-colors"
                         >
                           <Plus size={16} />
                         </button>
@@ -247,7 +247,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                       </div>
                       <div className="border-t border-[#d8c9b3] pt-2 flex justify-between">
                         <span className="text-[#1f1a17] font-medium">{t("detail.total")}</span>
-                        <span className="text-[#7a5e12] font-bold text-xl">${totalPrice}</span>
+                        <span className="text-[#2663EB] font-bold text-xl">${totalPrice}</span>
                       </div>
                     </div>
                   )}
@@ -255,7 +255,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                   <button
                     type="submit"
                     disabled={!checkIn || !checkOut || nights === 0}
-                    className="w-full py-4 bg-[#7a5e12] text-white font-bold rounded-lg hover:bg-[#5a450e] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-4 bg-[#2663EB] text-white font-bold rounded-lg hover:bg-[#1E4CC1] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {t("detail.bookThisGer")}
                   </button>
@@ -282,7 +282,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                       <Link
                         href="/accommodation"
                         onClick={() => setShowGuestOverflow(false)}
-                        className="px-5 py-2.5 bg-[#7a5e12] text-white rounded-lg hover:bg-[#5a450e] transition-colors font-medium"
+                        className="px-5 py-2.5 bg-[#2663EB] text-white rounded-lg hover:bg-[#1E4CC1] transition-colors font-medium"
                       >
                         {t("detail.addAnotherGerYes")}
                       </Link>
@@ -333,14 +333,14 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                         </div>
                         <div className="flex justify-between pt-2">
                           <span className="text-[#1f1a17] font-bold">{t("detail.total")}</span>
-                          <span className="text-[#7a5e12] font-bold text-xl">${totalPrice}</span>
+                          <span className="text-[#2663EB] font-bold text-xl">${totalPrice}</span>
                         </div>
                       </div>
                     </div>
 
                     <div className="bg-[#efe9df] rounded-xl p-4 border border-[#d8c9b3]">
                       <div className="flex items-center gap-3 mb-2">
-                        <CreditCard size={20} className="text-[#7a5e12]" />
+                        <CreditCard size={20} className="text-[#2663EB]" />
                         <span className="font-bold text-[#1f1a17]">{t("detail.demoPayment")}</span>
                       </div>
                       <p className="text-sm text-[#6b5e52]">{t("detail.demoPaymentNote")}</p>
@@ -351,7 +351,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                     <button
                       onClick={handlePay}
                       disabled={processing}
-                      className="w-full py-3.5 bg-[#7a5e12] text-white font-bold rounded-lg hover:bg-[#5a450e] transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="w-full py-3.5 bg-[#2663EB] text-white font-bold rounded-lg hover:bg-[#1E4CC1] transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                       {processing ? (
                         <>
@@ -382,7 +382,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
               <div className="grid grid-cols-2 gap-2">
                 {["King Bed", "Private Bathroom", "Heating", "Steppe View", "WiFi", "Breakfast Included"].map((amenity) => (
                   <div key={amenity} className="flex items-center gap-2 text-[#6b5e52]">
-                    <Check size={16} className="text-[#7a5e12]" />
+                    <Check size={16} className="text-[#2663EB]" />
                     <span>{amenity}</span>
                   </div>
                 ))}
@@ -394,3 +394,4 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
     </div>
   );
 }
+

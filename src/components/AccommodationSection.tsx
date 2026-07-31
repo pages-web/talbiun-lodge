@@ -38,7 +38,7 @@ export default function AccommodationSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-28 lg:py-36 bg-[#efe9df]">
+    <section ref={ref} className="py-28 lg:py-36 bg-[#FAFCFF]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
           <div className="max-w-2xl">
@@ -46,7 +46,7 @@ export default function AccommodationSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-xs tracking-[0.35em] text-[#7a5e12] uppercase mb-5 font-medium"
+              className="text-xs tracking-[0.35em] text-[#2663EB] uppercase mb-5 font-medium"
             >
               {t("subtitle")}
             </motion.p>
@@ -54,7 +54,7 @@ export default function AccommodationSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#1f1a17] leading-[1.1] mb-5"
+              className="text-4xl md:text-5xl lg:text-6xl   font-serif text-[#1f1a17] leading-[1.1] mb-5"
             >
               {t("title")}
             </motion.h2>
@@ -75,7 +75,7 @@ export default function AccommodationSection() {
           >
             <Link
               href="/accommodation"
-              className="inline-flex items-center text-sm tracking-[0.1em] uppercase text-[#7a5e12] hover:text-[#5a450e] transition-colors font-semibold group"
+              className="inline-flex items-center text-sm tracking-[0.1em] uppercase text-[#2663EB] hover:text-[#1E4CC1] transition-colors font-semibold group"
             >
               {t("viewAll") || "View All Gers"}
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -107,7 +107,7 @@ export default function AccommodationSection() {
 
                 <div className="p-7">
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors">
+                    <h3 className="text-xl font-bold text-[#1f1a17] group-hover:text-[#2663EB] transition-colors">
                       {t(`${ger.key}.name`)}
                     </h3>
                     <span className="text-xs text-[#6b5e52]">{ger.size}</span>
@@ -126,7 +126,7 @@ export default function AccommodationSection() {
                     ))}
                   </div>
 
-                  <span className="inline-flex items-center text-sm font-semibold text-[#7a5e12] group-hover:text-[#5a450e] transition-colors">
+                  <span className="inline-flex items-center text-sm font-semibold text-[#2663EB] group-hover:text-[#1a4db3] transition-colors">
                     {t("bookNow")}
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </span>
@@ -138,4 +138,4 @@ export default function AccommodationSection() {
       </div>
     </section>
   );
-}
+} 

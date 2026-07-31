@@ -56,7 +56,7 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold tracking-[0.25em] text-[#c9a86c] uppercase mb-6">
+            <h4 className="text-xs font-bold tracking-[0.25em] text-[#2663EB] uppercase mb-6">
               {t("explore")}
             </h4>
             <ul className="space-y-3">
@@ -74,7 +74,7 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-bold tracking-[0.25em] text-[#c9a86c] uppercase mb-6">
+            <h4 className="text-xs font-bold tracking-[0.25em] text-[#2663EB] uppercase mb-6">
               {t("contact")}
             </h4>
             <ul className="space-y-3 text-[#a09080]">
@@ -85,7 +85,7 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold tracking-[0.25em] text-[#c9a86c] uppercase mb-6">
+            <h4 className="text-xs font-bold tracking-[0.25em] text-[#2663EB] uppercase mb-6">
               {t("hours")}
             </h4>
             <p className="text-[#a09080] leading-relaxed">

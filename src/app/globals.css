@@ -1,10 +1,11 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #f7f4ef;
   --foreground: #1f1a17;
-  --color-primary: #7a5e12;
-  --color-primary-dark: #5a450e;
+  --color-primary: #2663EB;
+  --color-primary-dark: #1E4CC1;
   --color-secondary: #a0522d;
   --color-accent: #c9a86c;
   --color-cream: #f7f4ef;
@@ -129,3 +130,8 @@ body {
 .text-shadow-soft {
   text-shadow: 0 1px 3px rgba(31, 26, 23, 0.15);
 }
+
+/* Hide duplicate h1 from CMS content */
+.cms-content h1 { display: none; }
+
+
