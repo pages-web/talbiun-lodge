@@ -32,9 +32,9 @@ export default function Footer() {
   return (
     <footer className="bg-[var(--dark-background)] border-t border-[rgba(255,255,255,0.03)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+        <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-5">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4">
               <div className="relative w-10 h-10">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#2663EB] to-[#1E4CC1] rounded-sm transform rotate-3" />
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -73,7 +73,7 @@ export default function Footer() {
             <h4 className="text-xs font-bold tracking-[0.25em] text-[var(--color-accent)] uppercase mb-6">
               {t("explore")}
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link

@@ -28,10 +28,12 @@ export default function Header() {
 
   useEffect(() => {
     if (!isHome) return;
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const main = document.getElementById("main-scroll");
+    if (!main) return;
+    const handleScroll = () => setScrolled(main.scrollTop > 50);
     handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    main.addEventListener("scroll", handleScroll, { passive: true });
+    return () => main.removeEventListener("scroll", handleScroll);
   }, [isHome]);
 
   const navLinks = (data?.cpMenus?.length
@@ -79,7 +81,7 @@ export default function Header() {
               <span className={`text-xl font-bold tracking-wide transition-colors ${logoText}`}>
                 Talbiun
               </span>
-              <span className={`text-[10px] tracking-[0.3em] uppercase transition-colors ${logoSub}`}>
+              <span className={`text-xs tracking-[0.3em] uppercase transition-colors ${logoSub}`}>
                 Lodge
               </span>
             </div>
@@ -90,7 +92,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm tracking-wide transition-colors ${
+                className={`text-base tracking-wide transition-colors ${
                   pathname === link.href
                     ? `${activeText} font-medium`
                     : mutedText
@@ -140,7 +142,7 @@ export default function Header() {
             {user ? (
               <Link
                 href="/profile"
-                className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors ${mutedText}`}
+                className={`flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors ${mutedText}`}
               >
                 <User size={16} />
                 {t("myProfile")}
@@ -165,7 +167,7 @@ export default function Header() {
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>

@@ -83,7 +83,7 @@ export default function AccommodationSection() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {gers.map((ger, index) => (
             <motion.div
               key={ger.id}
@@ -92,8 +92,8 @@ export default function AccommodationSection() {
               transition={{ duration: 0.6, delay: 0.1 * index }}
               className="group section-surface natural-shadow natural-shadow-hover transition-all"
             >
-              <Link href={`/accommodation/${ger.id}`} className="block">
-                <div className="relative aspect-[4/3] overflow-hidden">
+              <Link href={`/accommodation/${ger.id}`} className="block flex flex-col h-full">
+                <div className="relative aspect-[16/5] overflow-hidden">
                   <img
                     src={ger.image}
                     alt={t(`${ger.key}.name`)}
@@ -115,7 +115,7 @@ export default function AccommodationSection() {
 
                     <p className="text-muted mb-5 leading-relaxed">{t(`${ger.key}.description`)}</p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {ger.amenities.map((amenity) => (
                       <span key={amenity} className="px-3 py-1 bg-[rgba(255,255,255,0.03)] text-muted text-xs tracking-wide rounded">
                         {amenity}

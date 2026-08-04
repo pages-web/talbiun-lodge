@@ -17,7 +17,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen snap-start flex flex-col items-center justify-center pt-20 pb-20 overflow-hidden">
       {/* Full background image */}
       <div className="absolute inset-0">
         <Image
@@ -26,7 +26,7 @@ export default function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_60%] ken-burns"
+          className="object-cover object-center ken-burns"
           loading="eager"
           decoding="async"
         />
@@ -36,7 +36,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 hero-vignette" />
       </div>
 
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20 pb-24">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-12 pb-10">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-[1.1] mb-8 text-shadow-hero"
+          className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-serif text-white leading-[1.05] mb-6 text-shadow-hero"
         >
           {t("title")}
         </motion.h1>
@@ -59,7 +59,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-lg md:text-xl text-white/85 mb-12 max-w-2xl mx-auto font-light tracking-wide"
+          className="text-xl md:text-2xl text-white/85 mb-8 max-w-2xl mx-auto font-light tracking-wide"
         >
           {t("description")}
         </motion.p>
@@ -78,7 +78,7 @@ export default function HeroSection() {
           </Link>
           <Link
             href="/about"
-            className="inline-block px-10 py-4 border-2 border-white/60 text-white text-sm tracking-[0.15em] uppercase rounded-lg hover:bg-white/10 transition-all backdrop-blur-sm"
+            className="inline-block px-8 py-3 border-2 border-white/60 text-white text-lg tracking-[0.15em] uppercase rounded-lg hover:bg-white/10 transition-all backdrop-blur-sm"
           >
             {t("learnMore")}
           </Link>
@@ -91,10 +91,10 @@ export default function HeroSection() {
         onClick={scrollToAbout}
         aria-label="Scroll to about section"
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 transition-colors cursor-pointer"
-        animate={{ y: [0, 10, 0] }}
+        animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <ChevronDown className="w-7 h-7 text-white" />
+        <ChevronDown className="w-5 h-5 text-white" />
       </motion.button>
     </section>
   );

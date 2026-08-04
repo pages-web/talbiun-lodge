@@ -96,7 +96,7 @@ export default function ServicesSection() {
               transition={{ duration: 0.6, delay: 0.1 * index }}
               className="group"
             >
-              <div className="relative aspect-[4/3] overflow-hidden mb-6 natural-shadow">
+              <div className="relative aspect-[16/6] overflow-hidden mb-3 natural-shadow">
                 <img
                   src={exp.image}
                   alt={t(`experiences.${exp.key}.title`)}

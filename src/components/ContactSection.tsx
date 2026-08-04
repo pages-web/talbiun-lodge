@@ -45,7 +45,7 @@ export default function ContactSection() {
               {t("description")}
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {contactInfo.map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -76,9 +76,9 @@ export default function ContactSection() {
             <p className="text-muted mb-8">{t("formSubtitle")}</p>
 
             {submitted ? (
-              <div className="flex items-center gap-3 p-6 bg-[#5e6b3a]/10 text-[#5e6b3a]">
+              <div className="flex items-center gap-3 p-4 bg-[#5e6b3a]/10 text-[#5e6b3a]">
                 <Check className="w-5 h-5" />
-                <span>{t("formSuccess")}</span>
+                <span className="text-lg">{t("formSuccess")}</span>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -108,7 +108,7 @@ export default function ContactSection() {
                   type="submit"
                   className="w-full px-8 py-4 bg-[#2663EB] text-white font-semibold tracking-[0.1em] uppercase hover:bg-[#1E4CC1] transition-all flex items-center justify-center gap-2"
                 >
-                  <Send size={18} />
+                  <Send size={20} />
                   {t("form.send")}
                 </button>
               </form>
