@@ -1,18 +1,27 @@
-"use client";
+  "use client";
 
 import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { Menu, X, ChevronDown, User, LogOut } from "lucide-react";
 import { useLocalAuth } from "@/lib/auth/LocalAuthContext";
+import { useQuery } from "@apollo/client/react";
+import { CP_MENUS } from "@/graphql/cms/queries/menu";
+import type { CpMenusData, CpMenusVariables } from "@/graphql/cms/queries/menu";
 
 export default function Header() {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { user, logout } = useLocalAuth();
+
+  const { data } = useQuery<CpMenusData, CpMenusVariables>(CP_MENUS, {
+    variables: { language: locale, kind: "main", webId: process.env.NEXT_PUBLIC_ERXES_WEB_ID },
+    fetchPolicy: "cache-and-network",
+  });
 
   const isHome = pathname === "/" || pathname === "/mn";
   const isTransparent = isHome && !scrolled;
@@ -25,25 +34,33 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHome]);
 
-  const navLinks = [
-    { label: t("home"), href: "/" },
-    { label: t("about"), href: "/about" },
-    { label: t("accommodation"), href: "/accommodation" },
-    { label: t("experiences"), href: "/experiences" },
-    { label: t("contact"), href: "/contact" },
-  ];
+  const navLinks = (data?.cpMenus?.length
+    ? data.cpMenus
+        .filter((item) => item.kind !== "footer")
+        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+        .map((item) => ({
+          label: item.label || t("home"),
+          href: item.url || "/",
+        }))
+    : [
+        { label: t("home"), href: "/" },
+        { label: t("about"), href: "/about" },
+        { label: t("accommodation"), href: "/accommodation" },
+        { label: t("experiences"), href: "/experiences" },
+        { label: t("contact"), href: "/contact" },
+      ]);
 
   const headerBg = isTransparent
     ? "bg-transparent"
-    : "bg-[#f7f4ef]/95 backdrop-blur-md border-b border-[#d8c9b3]/50";
+    : "bg-[var(--surface)]/95 backdrop-blur-md border-b border-[rgba(13,13,15,0.06)]";
 
-  const logoText = isTransparent ? "text-white" : "text-[#1f1a17]";
-  const logoSub = isTransparent ? "text-[#c9a86c]" : "text-[#2663EB]";
+  const logoText = isTransparent ? "text-white" : "text-[var(--color-foreground)]";
+  const logoSub = "text-[var(--color-accent)]";
   const mutedText = isTransparent
     ? "text-white/80 hover:text-white"
-    : "text-[#4a3f36] hover:text-[#1f1a17]";
-  const activeText = isTransparent ? "text-[#c9a86c]" : "text-[#2663EB]";
-  const iconColor = isTransparent ? "text-white" : "text-[#1f1a17]";
+    : "text-muted hover:text-[var(--color-foreground)]";
+  const activeText = "text-[var(--color-accent)]";
+  const iconColor = isTransparent ? "text-white" : "text-[var(--color-foreground)]";
 
   return (
     <header
@@ -53,7 +70,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a86c] to-[#2663EB] rounded-lg transform rotate-3 group-hover:rotate-6 transition-transform" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#2663EB] to-[#1E4CC1] rounded-lg transform rotate-3 group-hover:rotate-6 transition-transform" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-white font-bold text-lg">T</span>
               </div>
@@ -94,18 +111,18 @@ export default function Header() {
               </button>
 
               {langOpen && (
-                <div className="absolute top-full right-0 mt-1 py-1 bg-white border border-[#d8c9b3] rounded-md shadow-lg min-w-[80px]">
+                <div className="absolute top-full right-0 mt-1 py-1 bg-[var(--surface)] border border-[rgba(13,13,15,0.06)] rounded-md shadow-lg min-w-[80px]">
                   <Link
                     href={pathname}
                     locale="en"
-                    className="block px-4 py-2 text-sm text-[#4a3f36] hover:text-[#1f1a17] hover:bg-[#f7f4ef] transition-colors"
+                    className="block px-4 py-2 text-sm text-muted hover:text-[var(--color-foreground)] hover:bg-[rgba(13,13,15,0.02)] transition-colors"
                   >
                     English
                   </Link>
                   <Link
                     href={pathname}
                     locale="mn"
-                    className="block px-4 py-2 text-sm text-[#4a3f36] hover:text-[#1f1a17] hover:bg-[#f7f4ef] transition-colors"
+                    className="block px-4 py-2 text-sm text-muted hover:text-[var(--color-foreground)] hover:bg-[rgba(13,13,15,0.02)] transition-colors"
                   >
                     Монгол
                   </Link>
@@ -115,11 +132,7 @@ export default function Header() {
 
             <Link
               href="/accommodation"
-              className={`px-6 py-2.5 text-sm font-medium rounded-lg transition-all shadow-md ${
-                isTransparent
-                  ? "bg-[#c9a86c] text-[#1f1a17] hover:bg-[#b89a60]"
-                  : "bg-[#2663EB] text-white hover:bg-[#1E4CC1]"
-              }`}
+              className={`px-6 py-2.5 text-sm font-medium rounded-lg transition-all shadow-md btn-blue`}
             >
               {t("bookNow")}
             </Link>
@@ -138,7 +151,7 @@ export default function Header() {
                 className={`flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg transition-all ${
                   isTransparent
                     ? "border border-white/60 text-white hover:bg-white/10"
-                    : "border border-[#2663EB] text-[#2663EB] hover:bg-[#2663EB] hover:text-white"
+                    : "border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white"
                 }`}
               >
                 <User size={16} />
@@ -158,13 +171,13 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-[#d8c9b3]/50">
+        <div className="md:hidden section-surface border-t border-[rgba(13,13,15,0.06)]">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block text-[#4a3f36] hover:text-[#1f1a17] transition-colors"
+                className="block text-muted hover:text-[var(--color-foreground)] transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
@@ -175,7 +188,7 @@ export default function Header() {
                 <>
                   <Link
                     href="/profile"
-                    className="flex items-center gap-2 text-[#2663EB] font-medium"
+                    className="flex items-center gap-2 text-[var(--color-accent)] font-medium"
                     onClick={() => setMobileOpen(false)}
                   >
                     <User size={16} />
@@ -183,7 +196,7 @@ export default function Header() {
                   </Link>
                   <button
                     onClick={() => { logout(); setMobileOpen(false); }}
-                    className="flex items-center gap-2 text-[#4a3f36] hover:text-[#1f1a17]"
+                    className="flex items-center gap-2 text-muted hover:text-[var(--color-foreground)]"
                   >
                     <LogOut size={16} />
                     {t("logout")}
@@ -192,7 +205,7 @@ export default function Header() {
               ) : (
                 <Link
                   href="/login"
-                  className="flex items-center gap-2 text-[#2663EB] font-medium"
+                  className="flex items-center gap-2 text-[var(--color-accent)] font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   <User size={16} />
@@ -200,9 +213,9 @@ export default function Header() {
                 </Link>
               )}
             </div>
-            <div className="flex gap-4 pt-2 border-t border-[#d8c9b3]/50">
-              <Link href={pathname} locale="en" className="text-sm text-[#2663EB]">EN</Link>
-              <Link href={pathname} locale="mn" className="text-sm text-[#2663EB]">MN</Link>
+            <div className="flex gap-4 pt-2 border-t border-[rgba(255,255,255,0.06)]">
+              <Link href={pathname} locale="en" className="text-sm text-[var(--color-accent)]">EN</Link>
+              <Link href={pathname} locale="mn" className="text-sm text-[var(--color-accent)]">MN</Link>
             </div>
           </div>
         </div>

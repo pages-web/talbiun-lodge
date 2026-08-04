@@ -23,18 +23,18 @@ export default function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center bg-[#f7f4ef]">
-        <div className="text-[#6b5e52]">Loading...</div>
+      <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center section-surface">
+        <div className="text-muted">Loading...</div>
       </div>
     );
   }
 
   if (!user) {
     return (
-      <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center bg-[#f7f4ef] px-4">
+      <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center section-surface px-4">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-[#1f1a17] mb-4">{at("login")}</h1>
-          <Link href="/login" className="px-8 py-3 bg-[#2663EB] text-white font-bold rounded-lg hover:bg-[#1E4CC1] transition-all">
+          <h1 className="text-2xl font-bold text-[var(--color-foreground)] mb-4">{at("login")}</h1>
+          <Link href="/login" className="px-8 py-3 bg-[var(--color-accent)] text-white font-bold rounded-lg hover:bg-[var(--color-primary-dark)] transition-all">
             {at("login")}
           </Link>
         </div>
@@ -66,16 +66,16 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-5rem)] bg-[#f7f4ef] px-4 py-24">
+    <div className="min-h-[calc(100vh-5rem)] section-surface px-4 py-24">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-[#1f1a17]">{t("title")}</h1>
-            <p className="text-[#6b5e52]">{user.email}</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-foreground)]">{t("title")}</h1>
+            <p className="text-muted">{user.email}</p>
           </div>
           <button
             onClick={() => { logout(); router.push("/"); }}
-            className="flex items-center justify-center gap-2 px-6 py-2.5 border border-[#2663EB] text-[#2663EB] rounded-lg hover:bg-[#2663EB] hover:text-white transition-all"
+            className="flex items-center justify-center gap-2 px-6 py-2.5 border border-[var(--color-accent)] text-[var(--color-accent)] rounded-lg hover:bg-[var(--color-accent)] hover:text-white transition-all"
           >
             <LogOut size={18} />
             {at("logout")}
@@ -83,7 +83,7 @@ export default function ProfilePage() {
         </div>
 
         {message && (
-          <div className="mb-6 p-3 bg-[#efe9df] text-[#2663EB] rounded-lg text-sm">{message}</div>
+          <div className="mb-6 p-3 bg-[rgba(255,255,255,0.03)] text-[var(--color-accent)] rounded-lg text-sm">{message}</div>
         )}
 
         <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
@@ -97,8 +97,8 @@ export default function ProfilePage() {
               onClick={() => setTab(item.key as Tab)}
               className={`px-6 py-3 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
                 tab === item.key
-                  ? "bg-[#2663EB] text-white"
-                  : "bg-white text-[#4a3f36] border border-[#d8c9b3] hover:border-[#2663EB]"
+                  ? "bg-[var(--color-accent)] text-white"
+                  : "bg-[var(--surface)] text-muted border border-[rgba(255,255,255,0.06)] hover:border-[var(--color-accent)]"
               }`}
             >
               {item.label}
@@ -108,82 +108,82 @@ export default function ProfilePage() {
 
         {tab === "info" && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-6 border border-[#d8c9b3] natural-shadow">
-              <h2 className="text-xl font-bold text-[#1f1a17] mb-6">{t("personalInfo")}</h2>
+            <div className="section-surface rounded-2xl p-6 border border-[rgba(255,255,255,0.06)] natural-shadow">
+              <h2 className="text-xl font-bold text-[var(--color-foreground)] mb-6">{t("personalInfo")}</h2>
               <form onSubmit={handleSaveInfo} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm text-[#4a3f36] mb-1">{at("firstName")}</label>
+                    <label className="block text-sm text-muted mb-1">{at("firstName")}</label>
                     <input
                       type="text"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
+                      className="w-full px-4 py-3 bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg text-[var(--color-foreground)] focus:border-[var(--color-accent)] focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-[#4a3f36] mb-1">{at("lastName")}</label>
+                    <label className="block text-sm text-muted mb-1">{at("lastName")}</label>
                     <input
                       type="text"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
+                      className="w-full px-4 py-3 bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg text-[var(--color-foreground)] focus:border-[var(--color-accent)] focus:outline-none"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm text-[#4a3f36] mb-1">{at("email")}</label>
+                  <label className="block text-sm text-muted mb-1">{at("email")}</label>
                   <input
                     type="email"
                     value={user.email}
                     disabled
-                    className="w-full px-4 py-3 bg-[#efe9df] border border-[#d8c9b3] rounded-lg text-[#6b5e52]"
+                    className="w-full px-4 py-3 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] rounded-lg text-muted"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-[#4a3f36] mb-1">{at("phone")}</label>
+                  <label className="block text-sm text-muted mb-1">{at("phone")}</label>
                   <input
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg text-[var(--color-foreground)] focus:border-[var(--color-accent)] focus:outline-none"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="px-8 py-3 bg-[#2663EB] text-white font-bold rounded-lg hover:bg-[#1E4CC1] transition-all"
+                  className="px-8 py-3 bg-[var(--color-accent)] text-white font-bold rounded-lg hover:bg-[var(--color-primary-dark)] transition-all"
                 >
                   {t("save")}
                 </button>
               </form>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-[#d8c9b3] natural-shadow">
-              <h2 className="text-xl font-bold text-[#1f1a17] mb-6">{t("changePassword")}</h2>
+            <div className="section-surface rounded-2xl p-6 border border-[rgba(255,255,255,0.06)] natural-shadow">
+              <h2 className="text-xl font-bold text-[var(--color-foreground)] mb-6">{t("changePassword")}</h2>
               <form onSubmit={handleChangePassword} className="space-y-4">
                 <div>
-                  <label className="block text-sm text-[#4a3f36] mb-1">{t("currentPassword")}</label>
+                  <label className="block text-sm text-muted mb-1">{t("currentPassword")}</label>
                   <input
                     type="password"
                     value={currentPassword}
                     onChange={(e) => setCurrentPassword(e.target.value)}
-                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg text-[var(--color-foreground)] focus:border-[var(--color-accent)] focus:outline-none"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-[#4a3f36] mb-1">{t("newPassword")}</label>
+                  <label className="block text-sm text-muted mb-1">{t("newPassword")}</label>
                   <input
                     type="password"
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
-                    className="w-full px-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg text-[var(--color-foreground)] focus:border-[var(--color-accent)] focus:outline-none"
                     required
                   />
                 </div>
                 <button
                   type="submit"
-                  className="px-8 py-3 bg-[#2663EB] text-white font-bold rounded-lg hover:bg-[#1E4CC1] transition-all"
+                  className="px-8 py-3 bg-[var(--color-accent)] text-white font-bold rounded-lg hover:bg-[var(--color-primary-dark)] transition-all"
                 >
                   {t("changePassword")}
                 </button>
@@ -193,23 +193,23 @@ export default function ProfilePage() {
         )}
 
         {tab === "bookings" && (
-          <div className="bg-white rounded-2xl border border-[#d8c9b3] natural-shadow overflow-hidden">
-            <div className="p-6 border-b border-[#d8c9b3]/50">
-              <h2 className="text-xl font-bold text-[#1f1a17]">{t("myBookings")}</h2>
+          <div className="section-surface rounded-2xl border border-[rgba(255,255,255,0.06)] natural-shadow overflow-hidden">
+            <div className="p-6 border-b border-[rgba(255,255,255,0.06)]">
+              <h2 className="text-xl font-bold text-[var(--color-foreground)]">{t("myBookings")}</h2>
             </div>
             {activeBookings.length === 0 ? (
-              <div className="p-12 text-center text-[#6b5e52]">{t("noBookings")}</div>
+              <div className="p-12 text-center text-muted">{t("noBookings")}</div>
             ) : (
-              <div className="divide-y divide-[#d8c9b3]/50">
+              <div className="divide-y divide-[rgba(255,255,255,0.06)]">
                 {activeBookings.map((booking) => (
                   <div key={booking.id} className="p-6">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                       <div className="space-y-2">
-                        <h3 className="font-bold text-[#1f1a17]">{booking.gerName}</h3>
-                        <div className="flex flex-wrap gap-4 text-sm text-[#6b5e52]">
+                        <h3 className="font-bold text-[var(--color-foreground)]">{booking.gerName}</h3>
+                        <div className="flex flex-wrap gap-4 text-sm text-muted">
                           <span className="flex items-center gap-1"><Calendar size={14} /> {booking.checkIn} → {booking.checkOut}</span>
                           <span>{booking.adults} {t("adults")}, {booking.children} {t("children")}</span>
-                          <span className="font-medium text-[#2663EB]">${booking.totalPrice}</span>
+                          <span className="font-medium text-[var(--color-accent)]">${booking.totalPrice}</span>
                         </div>
                         <div className="inline-flex items-center px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-medium">
                           {t("active")}
@@ -231,22 +231,22 @@ export default function ProfilePage() {
         )}
 
         {tab === "canceled" && (
-          <div className="bg-white rounded-2xl border border-[#d8c9b3] natural-shadow overflow-hidden">
-            <div className="p-6 border-b border-[#d8c9b3]/50">
-              <h2 className="text-xl font-bold text-[#1f1a17]">{t("canceledBookings")}</h2>
+          <div className="section-surface rounded-2xl border border-[rgba(255,255,255,0.06)] natural-shadow overflow-hidden">
+            <div className="p-6 border-b border-[rgba(255,255,255,0.06)]">
+              <h2 className="text-xl font-bold text-[var(--color-foreground)]">{t("canceledBookings")}</h2>
             </div>
             {canceledBookings.length === 0 ? (
-              <div className="p-12 text-center text-[#6b5e52]">{t("noCanceled")}</div>
+              <div className="p-12 text-center text-muted">{t("noCanceled")}</div>
             ) : (
-              <div className="divide-y divide-[#d8c9b3]/50">
+              <div className="divide-y divide-[rgba(255,255,255,0.06)]">
                 {canceledBookings.map((booking) => (
                   <div key={booking.id} className="p-6 opacity-70">
                     <div className="space-y-2">
-                      <h3 className="font-bold text-[#1f1a17]">{booking.gerName}</h3>
-                      <div className="flex flex-wrap gap-4 text-sm text-[#6b5e52]">
+                      <h3 className="font-bold text-[var(--color-foreground)]">{booking.gerName}</h3>
+                      <div className="flex flex-wrap gap-4 text-sm text-muted">
                         <span className="flex items-center gap-1"><Calendar size={14} /> {booking.checkIn} → {booking.checkOut}</span>
                         <span>{booking.adults} {t("adults")}, {booking.children} {t("children")}</span>
-                        <span className="font-medium text-[#2663EB]">${booking.totalPrice}</span>
+                        <span className="font-medium text-[var(--color-accent)]">${booking.totalPrice}</span>
                       </div>
                       <div className="inline-flex items-center px-3 py-1 bg-red-50 text-red-700 rounded-full text-xs font-medium">
                         {t("canceled")}

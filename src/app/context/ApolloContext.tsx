@@ -69,7 +69,9 @@ const splitLink =
       )
     : httpLink;
 
-const errorLink = onError(({ graphQLErrors, operation, forward }) => {
+const errorLink = onError((error: any) => {
+  const { graphQLErrors, operation, forward } = error;
+
   if (graphQLErrors) {
     for (const err of graphQLErrors) {
       if (

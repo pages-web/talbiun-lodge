@@ -2,39 +2,43 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #f7f4ef;
-  --foreground: #1f1a17;
-  --color-primary: #2663EB;
+  --background: #ffffff; /* default page background (white) */
+  --surface: #ffffff; /* default surface for sections/cards (white) */
+  --foreground: #151515; /* primary text color (near-black) */
+  --muted: #8a8a8f; /* cool gray for secondary text */
+  --color-primary: #2663EB; /* blue accent */
   --color-primary-dark: #1E4CC1;
-  --color-secondary: #a0522d;
-  --color-accent: #c9a86c;
-  --color-cream: #f7f4ef;
-  --color-warm-white: #ffffff;
-  --color-terracotta: #b5684a;
-  --color-sand: #d8c9b3;
-  --color-olive: #5e6b3a;
+  --color-accent: var(--color-primary);
+  /* Dark tokens for header/footer only */
+  --dark-background: #0d0d0f;
+  --dark-surface: #151515;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
   --color-primary: var(--color-primary);
   --color-primary-dark: var(--color-primary-dark);
-  --color-secondary: var(--color-secondary);
   --color-accent: var(--color-accent);
-  --color-cream: var(--color-cream);
-  --color-warm-white: var(--color-warm-white);
-  --color-terracotta: var(--color-terracotta);
-  --color-sand: var(--color-sand);
-  --color-olive: var(--color-olive);
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--color-foreground);
 }
+
+/* Section background helper for surface/cards */
+.section-surface { background: var(--color-surface); }
+
+/* Muted text helper */
+.text-muted { color: var(--color-muted); }
+
+/* Accent divider */
+.divider-accent { border-color: var(--color-accent); }
 
 /* Natural grain texture overlay */
 .grain-overlay {
@@ -79,16 +83,16 @@ body {
 /* Natural shadow that mimics real lighting */
 .natural-shadow {
   box-shadow: 
-    0 1px 2px rgba(31, 26, 23, 0.06),
-    0 2px 8px rgba(31, 26, 23, 0.04),
-    0 6px 18px rgba(31, 26, 23, 0.03);
+    0 1px 2px rgba(13, 13, 15, 0.06),
+    0 2px 8px rgba(13, 13, 15, 0.04),
+    0 6px 18px rgba(13, 13, 15, 0.03);
 }
 
 .natural-shadow-hover:hover {
   box-shadow: 
-    0 2px 4px rgba(31, 26, 23, 0.08),
-    0 6px 16px rgba(31, 26, 23, 0.06),
-    0 12px 32px rgba(31, 26, 23, 0.04);
+    0 2px 4px rgba(13, 13, 15, 0.08),
+    0 6px 16px rgba(13, 13, 15, 0.06),
+    0 12px 32px rgba(13, 13, 15, 0.04);
 }
 
 /* Organic gradient for natural feel */
@@ -105,9 +109,9 @@ body {
 .hero-overlay {
   background: linear-gradient(
     to bottom,
-    rgba(31, 26, 23, 0.45) 0%,
-    rgba(31, 26, 23, 0.25) 40%,
-    rgba(31, 26, 23, 0.65) 100%
+    rgba(13, 13, 15, 0.45) 0%,
+    rgba(13, 13, 15, 0.25) 40%,
+    rgba(13, 13, 15, 0.65) 100%
   );
 }
 
@@ -116,22 +120,55 @@ body {
   background: radial-gradient(
     ellipse at center,
     transparent 0%,
-    rgba(31, 26, 23, 0.2) 70%,
-    rgba(31, 26, 23, 0.45) 100%
+    rgba(13, 13, 15, 0.2) 70%,
+    rgba(13, 13, 15, 0.45) 100%
   );
 }
 
 /* Text shadow for readability on images */
 .text-shadow-hero {
-  text-shadow: 0 2px 12px rgba(31, 26, 23, 0.5);
+  text-shadow: 0 2px 12px rgba(13, 13, 15, 0.5);
 }
 
 /* Subtle text shadow for light backgrounds */
 .text-shadow-soft {
-  text-shadow: 0 1px 3px rgba(31, 26, 23, 0.15);
+  text-shadow: 0 1px 3px rgba(13, 13, 15, 0.15);
+}
+
+/* Image dark overlay used on hover states */
+.image-dark-overlay {
+  background: linear-gradient(to top, rgba(13,13,15,0.4), transparent);
 }
 
 /* Hide duplicate h1 from CMS content */
 .cms-content h1 { display: none; }
+
+/* Button utilities */
+.btn-brown {
+  background: var(--color-accent);
+  color: var(--color-foreground);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.btn-brown:hover {
+  background: var(--color-primary-dark);
+}
+.btn-blue {
+  background: var(--color-primary);
+  color: white;
+}
+.btn-blue:hover {
+  background: var(--color-primary-dark);
+}
+.btn-brown, .btn-blue {
+  transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+}
+
+/* Social icons */
+.social-icon-brown {
+  color: var(--color-accent);
+}
+.social-icon-brown:hover {
+  color: var(--color-primary-dark);
+}
 
 

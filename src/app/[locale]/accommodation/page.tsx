@@ -38,16 +38,16 @@ export default function AccommodationPage() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <div className="pt-24 pb-24 bg-[#f7f4ef] min-h-screen">
+    <div className="pt-24 pb-24 section-surface min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-xs tracking-[0.3em] text-[#2663EB] uppercase mb-4 font-medium">
             {t("subtitle")}
           </p>
-          <h1 className="text-4xl md:text-5xl font-serif text-[#1f1a17] mb-4">
+          <h1 className="text-4xl md:text-5xl font-serif text-[var(--color-foreground)] mb-4">
             {t("title")}
           </h1>
-          <p className="text-[#6b5e52] max-w-2xl mx-auto">
+          <p className="text-muted max-w-2xl mx-auto">
             {t("description")}
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function AccommodationPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="group bg-white rounded-2xl overflow-hidden border border-[#d8c9b3]/50 natural-shadow natural-shadow-hover transition-all"
+              className="group section-surface rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.06)] natural-shadow natural-shadow-hover transition-all"
             >
               <Link href={`/accommodation/${ger.id}`} className="block">
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -68,17 +68,17 @@ export default function AccommodationPage() {
                     alt={t(`${ger.key}.name`)}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-[#1f1a17] px-4 py-2 rounded-lg font-bold shadow-md">
+                  <div className="absolute top-4 right-4 bg-[var(--surface)]/95 backdrop-blur-sm text-[var(--color-foreground)] px-4 py-2 rounded-lg font-bold shadow-md">
                     {t(`${ger.key}.price`)}
-                    <span className="text-sm font-normal text-[#6b5e52]">/{t("price")}</span>
+                    <span className="text-sm font-normal text-muted">/{t("price")}</span>
                   </div>
                 </div>
 
                 <div className="p-6 pb-0">
-                  <h3 className="text-xl font-bold text-[#1f1a17] mb-2 group-hover:text-[#2663EB] transition-colors">{t(`${ger.key}.name`)}</h3>
-                  <p className="text-[#6b5e52] mb-4">{t(`${ger.key}.description`)}</p>
+                  <h3 className="text-xl font-bold text-[var(--color-foreground)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">{t(`${ger.key}.name`)}</h3>
+                  <p className="text-muted mb-4">{t(`${ger.key}.description`)}</p>
 
-                  <div className="flex gap-4 mb-4 text-sm text-[#6b5e52]">
+                  <div className="flex gap-4 mb-4 text-sm text-muted">
                     <div className="flex items-center gap-1">
                       <Users size={16} />
                       <span>{ger.capacity}</span>
@@ -91,10 +91,7 @@ export default function AccommodationPage() {
 
                   <div className="flex flex-wrap gap-2 mb-6">
                     {ger.amenities.map((amenity) => (
-                      <span
-                        key={amenity}
-                        className="px-3 py-1 bg-[#efe9df] text-[#4a3f36] text-xs rounded-full border border-[#d8c9b3]"
-                      >
+                      <span key={amenity} className="px-3 py-1 bg-[rgba(255,255,255,0.03)] text-muted text-xs rounded-full border border-[rgba(255,255,255,0.06)]">
                         {amenity}
                       </span>
                     ))}

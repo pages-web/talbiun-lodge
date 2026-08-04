@@ -36,7 +36,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
   const [processing, setProcessing] = useState(false);
 
   const ger = gerDetails[id as keyof typeof gerDetails];
-  if (!ger) return <div className="text-[#1f1a17]">Ger not found</div>;
+  if (!ger) return <div className="text-[var(--color-foreground)]">Ger not found</div>;
 
   const priceString = t(`${id}.price`);
   const pricePerNight = parseInt(priceString.replace(/[^0-9]/g, "")) || 0;
@@ -98,7 +98,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <div className="pt-24 pb-24 bg-[#f7f4ef] min-h-screen">
+    <div className="pt-24 pb-24 section-surface min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link href="/accommodation" className="inline-flex items-center text-[#2663EB] hover:text-[#1E4CC1] mb-8 font-medium">
           <ArrowLeft size={20} className="mr-2" />
@@ -120,14 +120,14 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
 
           <div className="space-y-6">
             <div>
-              <h1 className="text-4xl font-bold text-[#1f1a17] mb-2">{t(`${id}.name`)}</h1>
-              <p className="text-[#6b5e52]">{t(`${id}.description`)}</p>
+              <h1 className="text-4xl font-bold text-[var(--color-foreground)] mb-2">{t(`${id}.name`)}</h1>
+              <p className="text-muted">{t(`${id}.description`)}</p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-[#d8c9b3]/50 natural-shadow relative">
+            <div className="section-surface rounded-2xl p-6 border border-[rgba(255,255,255,0.06)] natural-shadow relative">
               <div className="flex items-center justify-between mb-6">
-                <span className="text-[#6b5e52]">{t("detail.pricePerNight")}</span>
-                <span className="text-3xl font-bold text-[#2663EB]">{t(`${id}.price`)}</span>
+                <span className="text-muted">{t("detail.pricePerNight")}</span>
+                <span className="text-3xl font-bold text-[var(--color-accent)]">{t(`${id}.price`)}</span>
               </div>
 
               {submitted ? (
@@ -139,11 +139,11 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                   <p className="text-[#6b5e52]">{t("detail.bookingMessage")}</p>
                 </div>
               ) : !user ? (
-                <div className="text-center py-8 bg-[#efe9df] rounded-2xl border border-[#d8c9b3]">
-                  <h3 className="text-lg font-bold text-[#1f1a17] mb-3">{t("detail.signInToBook")}</h3>
+                  <div className="text-center py-8 bg-[rgba(255,255,255,0.03)] rounded-2xl border border-[rgba(255,255,255,0.06)]">
+                  <h3 className="text-lg font-bold text-[var(--color-foreground)] mb-3">{t("detail.signInToBook")}</h3>
                   <Link
                     href="/login"
-                    className="inline-block px-8 py-3 bg-[#2663EB] text-white font-bold rounded-lg hover:bg-[#1E4CC1] transition-all"
+                    className="inline-block px-8 py-3 bg-[var(--color-accent)] text-white font-bold rounded-lg hover:bg-[var(--color-primary-dark)] transition-all"
                   >
                     {t("detail.signInToBook")}
                   </Link>
@@ -163,7 +163,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                             setCheckIn(e.target.value);
                             if (checkOut && e.target.value >= checkOut) setCheckOut("");
                           }}
-                          className="w-full pl-10 pr-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
+                          className="w-full pl-10 pr-4 py-3 bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg text-[var(--color-foreground)] placeholder:text-muted focus:border-[var(--color-accent)] focus:outline-none"
                           required
                         />
                       </div>
@@ -177,7 +177,7 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                           value={checkOut}
                           min={checkIn ? new Date(new Date(checkIn).getTime() + 86400000).toISOString().split("T")[0] : today}
                           onChange={(e) => setCheckOut(e.target.value)}
-                          className="w-full pl-10 pr-4 py-3 bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg text-[#1f1a17] focus:border-[#2663EB] focus:outline-none"
+                          className="w-full pl-10 pr-4 py-3 bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg text-[var(--color-foreground)] placeholder:text-muted focus:border-[var(--color-accent)] focus:outline-none"
                           required
                         />
                       </div>
@@ -187,19 +187,19 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm text-[#6b5e52] mb-1">{t("detail.adults")}</label>
-                      <div className="flex items-center bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg">
+                      <div className="flex items-center bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg">
                         <button
                           type="button"
                           onClick={() => setAdults(Math.max(1, adults - 1))}
-                          className="p-3 text-[#6b5e52] hover:text-[#2663EB] transition-colors"
+                          className="p-3 text-muted hover:text-[var(--color-accent)] transition-colors"
                         >
                           <Minus size={16} />
                         </button>
-                        <span className="flex-1 text-center text-[#1f1a17] font-medium">{adults}</span>
+                        <span className="flex-1 text-center text-[var(--color-foreground)] font-medium">{adults}</span>
                         <button
                           type="button"
                           onClick={() => setAdults(adults + 1)}
-                          className="p-3 text-[#6b5e52] hover:text-[#2663EB] transition-colors"
+                          className="p-3 text-muted hover:text-[var(--color-accent)] transition-colors"
                         >
                           <Plus size={16} />
                         </button>
@@ -207,15 +207,15 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                     </div>
                     <div>
                       <label className="block text-sm text-[#6b5e52] mb-1">{t("detail.children")}</label>
-                      <div className="flex items-center bg-[#f7f4ef] border border-[#d8c9b3] rounded-lg">
+                      <div className="flex items-center bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg">
                         <button
                           type="button"
                           onClick={() => setChildren(Math.max(0, children - 1))}
-                          className="p-3 text-[#6b5e52] hover:text-[#2663EB] transition-colors"
+                          className="p-3 text-muted hover:text-[var(--color-accent)] transition-colors"
                         >
                           <Minus size={16} />
                         </button>
-                        <span className="flex-1 text-center text-[#1f1a17] font-medium">{children}</span>
+                        <span className="flex-1 text-center text-[var(--color-foreground)] font-medium">{children}</span>
                         <button
                           type="button"
                           onClick={() => setChildren(children + 1)}
@@ -234,20 +234,20 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                   )}
 
                   {nights > 0 && (
-                    <div className="bg-[#efe9df] rounded-lg p-4 space-y-2">
+                    <div className="bg-[rgba(255,255,255,0.03)] rounded-lg p-4 space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span className="text-[#6b5e52]">
+                        <span className="text-muted">
                           {t(`${id}.price`)} × {nights} {nights === 1 ? t("detail.night") : t("detail.nights")}
                         </span>
-                        <span className="text-[#1f1a17]">${pricePerNight * nights}</span>
+                        <span className="text-[var(--color-foreground)]">${pricePerNight * nights}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-[#6b5e52]">{t("detail.guests")}</span>
-                        <span className="text-[#1f1a17]">{adults} {t("detail.adults")}, {children} {t("detail.children")}</span>
+                        <span className="text-muted">{t("detail.guests")}</span>
+                        <span className="text-[var(--color-foreground)]">{adults} {t("detail.adults")}, {children} {t("detail.children")}</span>
                       </div>
                       <div className="border-t border-[#d8c9b3] pt-2 flex justify-between">
-                        <span className="text-[#1f1a17] font-medium">{t("detail.total")}</span>
-                        <span className="text-[#2663EB] font-bold text-xl">${totalPrice}</span>
+                        <span className="text-[var(--color-foreground)] font-medium">{t("detail.total")}</span>
+                        <span className="text-[var(--color-accent)] font-bold text-xl">${totalPrice}</span>
                       </div>
                     </div>
                   )}
@@ -264,25 +264,25 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
 
               {/* Guest Overflow Modal */}
               {showGuestOverflow && (
-                <div className="absolute inset-0 z-10 bg-white/95 backdrop-blur-sm rounded-2xl p-6 flex flex-col justify-center">
+                  <div className="absolute inset-0 z-10 bg-[var(--surface)]/95 backdrop-blur-sm rounded-2xl p-6 flex flex-col justify-center">
                   <div className="text-center">
                     <div className="w-14 h-14 bg-[#c94a4a]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Users size={28} className="text-[#c94a4a]" />
                     </div>
-                    <h3 className="text-xl font-bold text-[#1f1a17] mb-3">{t("detail.guestsOverflow")}</h3>
-                    <p className="text-[#6b5e52] mb-2">{t("detail.maxGuestsReached", { count: totalGuests })}</p>
-                    <p className="text-[#6b5e52] mb-6">{t("detail.addAnotherGer")}</p>
+                    <h3 className="text-xl font-bold text-[var(--color-foreground)] mb-3">{t("detail.guestsOverflow")}</h3>
+                    <p className="text-muted mb-2">{t("detail.maxGuestsReached", { count: totalGuests })}</p>
+                    <p className="text-muted mb-6">{t("detail.addAnotherGer")}</p>
                     <div className="flex gap-3 justify-center">
                       <button
                         onClick={() => confirmGuestLimit(false)}
-                        className="px-5 py-2.5 border border-[#d8c9b3] text-[#1f1a17] rounded-lg hover:bg-[#f7f4ef] transition-colors font-medium"
+                        className="px-5 py-2.5 border border-[rgba(255,255,255,0.06)] text-[var(--color-foreground)] rounded-lg hover:bg-[var(--surface)] transition-colors font-medium"
                       >
                         {t("detail.addAnotherGerNo")}
                       </button>
                       <Link
                         href="/accommodation"
                         onClick={() => setShowGuestOverflow(false)}
-                        className="px-5 py-2.5 bg-[#2663EB] text-white rounded-lg hover:bg-[#1E4CC1] transition-colors font-medium"
+                        className="px-5 py-2.5 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors font-medium"
                       >
                         {t("detail.addAnotherGerYes")}
                       </Link>
@@ -293,26 +293,26 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
 
               {/* Invoice Modal */}
               {showInvoice && (
-                <div className="absolute inset-0 z-10 bg-white/95 backdrop-blur-sm rounded-2xl p-6 flex flex-col">
+                <div className="absolute inset-0 z-10 bg-[var(--surface)]/95 backdrop-blur-sm rounded-2xl p-6 flex flex-col">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-[#1f1a17]">{t("detail.invoiceTitle")}</h3>
+                    <h3 className="text-xl font-bold text-[var(--color-foreground)]">{t("detail.invoiceTitle")}</h3>
                     <button
                       onClick={() => setShowInvoice(false)}
-                      className="text-[#6b5e52] hover:text-[#1f1a17] transition-colors"
+                      className="text-muted hover:text-[var(--color-foreground)] transition-colors"
                     >
                       {t("detail.cancel")}
                     </button>
                   </div>
-                  <p className="text-[#6b5e52] text-sm mb-4">{t("detail.invoiceDescription")}</p>
+                  <p className="text-muted text-sm mb-4">{t("detail.invoiceDescription")}</p>
 
                   <div className="flex-1 overflow-auto">
-                    <div className="bg-[#f7f4ef] rounded-xl p-4 space-y-3 mb-4">
+                    <div className="bg-[rgba(255,255,255,0.03)] rounded-xl p-4 space-y-3 mb-4">
                       <div className="flex justify-between text-sm">
-                        <span className="text-[#6b5e52]">{t("detail.bookingSummary")}</span>
+                        <span className="text-muted">{t("detail.bookingSummary")}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-[#1f1a17]">{t(`${id}.name`)}</span>
-                        <span className="text-[#1f1a17] font-medium">{t(`${id}.price`)}</span>
+                        <span className="text-[var(--color-foreground)]">{t(`${id}.name`)}</span>
+                        <span className="text-[var(--color-foreground)] font-medium">{t(`${id}.price`)}</span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-[#6b5e52]">{nights} {nights === 1 ? t("detail.night") : t("detail.nights")}</span>
@@ -338,12 +338,12 @@ export default function AccommodationDetailClient({ id }: { id: string }) {
                       </div>
                     </div>
 
-                    <div className="bg-[#efe9df] rounded-xl p-4 border border-[#d8c9b3]">
+                    <div className="bg-[rgba(255,255,255,0.03)] rounded-xl p-4 border border-[rgba(255,255,255,0.06)]">
                       <div className="flex items-center gap-3 mb-2">
                         <CreditCard size={20} className="text-[#2663EB]" />
-                        <span className="font-bold text-[#1f1a17]">{t("detail.demoPayment")}</span>
+                        <span className="font-bold text-[var(--color-foreground)]">{t("detail.demoPayment")}</span>
                       </div>
-                      <p className="text-sm text-[#6b5e52]">{t("detail.demoPaymentNote")}</p>
+                      <p className="text-sm text-muted">{t("detail.demoPaymentNote")}</p>
                     </div>
                   </div>
 

@@ -41,7 +41,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xs tracking-[0.35em] text-[#c9a86c] uppercase mb-6 font-medium"
+          className="text-xs tracking-[0.35em] text-[#2663EB] uppercase mb-6 font-medium"
         >
           {t("subtitle")}
         </motion.p>
@@ -72,7 +72,7 @@ export default function HeroSection() {
         >
           <Link
             href="/accommodation"
-            className="inline-block px-10 py-4 bg-[#c9a86c] text-[#1f1a17] text-sm tracking-[0.15em] uppercase rounded-lg hover:bg-[#b89a60] transition-all shadow-lg font-semibold"
+            className="inline-block px-10 py-4 btn-blue text-white text-sm tracking-[0.15em] uppercase rounded-lg transition-all shadow-lg font-semibold"
           >
             {t("cta")}
           </Link>

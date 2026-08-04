@@ -32,15 +32,15 @@ export default function AboutPage() {
     .trim();
 
   return (
-    <section className="bg-[#f7f4ef] min-h-screen py-24">
+    <section className="section-surface min-h-screen py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="uppercase tracking-[0.4em] text-[#9c7c3c] text-sm mb-6">
+          <p className="uppercase tracking-[0.4em] text-[var(--color-accent)] text-sm mb-6">
             About Us
           </p>
 
-          <h1 className="font-serif text-[#1f1a17] text-5xl md:text-6xl lg:text-7xl font-light leading-tight">
+          <h1 className="font-serif text-[var(--color-foreground)] text-5xl md:text-6xl lg:text-7xl font-light leading-tight">
             {mainPost?.title || "A Ger Retreat on the Open Steppe"}
           </h1>
         </div>
@@ -70,7 +70,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
             className="prose prose-lg max-w-none
-                       prose-p:text-[#4a3f36]
+                       prose-p:text-[var(--color-muted)]
                        prose-p:leading-[1.9]
                        prose-p:text-[1.15rem]
                        prose-headings:hidden"

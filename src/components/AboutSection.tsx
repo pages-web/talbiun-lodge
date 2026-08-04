@@ -1,15 +1,26 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ArrowRight } from "lucide-react";
+import { useQuery } from "@apollo/client/react";
+import { CP_POSTS } from "@/graphql/cms/queries/post";
+import type { CpPostsData, CpPostsVariables } from "@/graphql/cms/queries/post";
+import { resolveErxesMediaUrl } from "@/lib/erxes/config";
 
 export default function AboutSection() {
   const t = useTranslations("about");
+  const locale = useLocale();
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
+  const { data } = useQuery<CpPostsData, CpPostsVariables>(CP_POSTS, {
+    variables: { language: locale, limit: 3, status: "published" },
+    fetchPolicy: "cache-and-network",
+  });
+
+  const featuredPost = data?.cpPosts?.[0];
   const stats = [
     { number: "10+", label: t("stats.experience") },
     { number: "50+", label: t("stats.guests") },
@@ -35,10 +46,10 @@ export default function AboutSection() {
 
             <div className="space-y-5 mb-10">
               <p className="text-[#4a3f36] leading-[1.8] text-lg">
-                {t("description")}
+                {featuredPost?.excerpt || t("description")}
               </p>
               <p className="text-[#6b5e52] leading-[1.8]">
-                {t("extra")}
+                {featuredPost?.content ? featuredPost.content.replace(/<[^>]+>/g, "").slice(0, 220) + (featuredPost.content.length > 220 ? "…" : "") : t("extra")}
               </p>
             </div>
 
@@ -74,8 +85,8 @@ export default function AboutSection() {
             <div className="relative">
               <div className="relative aspect-[4/5] rounded-sm overflow-hidden natural-shadow">
                 <img
-                  src="/images/about-ger.jpg"
-                  alt="Traditional Mongolian Ger"
+                  src={resolveErxesMediaUrl(featuredPost?.thumbnail?.url) || "/images/about-ger.jpg"}
+                  alt={featuredPost?.title || "Traditional Mongolian Ger"}
                   className="w-full h-full object-cover"
                 />
               </div>

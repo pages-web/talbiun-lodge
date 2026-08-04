@@ -1,5 +1,6 @@
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { cookies } from "next/headers";
+import { getErxesHeaders, resolveErxesGraphqlUrl } from "@/lib/erxes/config";
 
 export async function getServerApolloClient() {
   const cookieStore = await cookies();
@@ -7,12 +8,9 @@ export async function getServerApolloClient() {
 
   return new ApolloClient({
     link: new HttpLink({
-      uri:
-        process.env.GRAPHQL_URL ??
-        process.env.NEXT_PUBLIC_GRAPHQL_URL ??
-        "/graphql",
+      uri: resolveErxesGraphqlUrl(),
       headers: {
-        "x-app-token": process.env.ERXES_APP_TOKEN ?? "",
+        ...getErxesHeaders(),
         ...(token ? { authorization: `Bearer ${token}` } : {}),
       },
       fetchOptions: { cache: "no-store" },

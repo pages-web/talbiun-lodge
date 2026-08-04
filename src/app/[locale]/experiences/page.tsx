@@ -59,16 +59,16 @@ export default function ExperiencesPage() {
   };
 
   return (
-    <div className="pt-28 pb-28 bg-[#f7f4ef] min-h-screen">
+    <div className="pt-28 pb-28 section-surface min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <p className="text-xs tracking-[0.35em] text-[#2663EB] uppercase mb-5 font-medium">
             {t("label")}
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#1f1a17] leading-[1.1] mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[var(--color-foreground)] leading-[1.1] mb-6">
             {t("title")}
           </h1>
-          <p className="text-[#6b5e52] leading-relaxed">
+          <p className="text-muted leading-relaxed">
             {t("subtitle")}
           </p>
         </div>
@@ -88,23 +88,23 @@ export default function ExperiencesPage() {
                     alt={t(`articles.${article.key}.title`)}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1f1a17]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 image-dark-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
-                <div className="flex items-center gap-2 text-xs text-[#6b5e52] mb-3">
+                <div className="flex items-center gap-2 text-xs text-muted mb-3">
                   <Calendar size={14} />
                   <span>{formatDate(article.date, t("locale") || "en")}</span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#1f1a17] mb-3 group-hover:text-[#2663EB] transition-colors">
+                <h3 className="text-xl font-bold text-[var(--color-foreground)] mb-3 group-hover:text-[var(--color-accent)] transition-colors">
                   {t(`articles.${article.key}.title`)}
                 </h3>
 
-                <p className="text-[#6b5e52] leading-relaxed mb-4 line-clamp-3">
+                <p className="text-muted leading-relaxed mb-4 line-clamp-3">
                   {t(`articles.${article.key}.excerpt`)}
                 </p>
 
-                <span className="inline-flex items-center text-sm font-semibold text-[#2663EB] group-hover:text-[#1E4CC1] transition-colors">
+                <span className="inline-flex items-center text-sm font-semibold text-[var(--color-accent)] group-hover:text-[var(--color-primary-dark)] transition-colors">
                   {t("readMore")}
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </span>
