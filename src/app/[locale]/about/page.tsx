@@ -77,10 +77,10 @@ export default function AboutPage() {
           >
             {loading ? (
               <div className="animate-pulse space-y-4">
-                <div className="h-5 bg-[#d8c9b3] rounded w-full" />
-                <div className="h-5 bg-[#d8c9b3] rounded w-5/6" />
-                <div className="h-5 bg-[#d8c9b3] rounded w-full" />
-                <div className="h-5 bg-[#d8c9b3] rounded w-4/5" />
+                <div className="h-5 bg-[var(--color-muted)]/20 rounded w-full" />
+                <div className="h-5 bg-[var(--color-muted)]/20 rounded w-5/6" />
+                <div className="h-5 bg-[var(--color-muted)]/20 rounded w-full" />
+                <div className="h-5 bg-[var(--color-muted)]/20 rounded w-4/5" />
               </div>
             ) : content ? (
               <div dangerouslySetInnerHTML={{ __html: content }} />

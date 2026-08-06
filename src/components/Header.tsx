@@ -23,17 +23,31 @@ export default function Header() {
     fetchPolicy: "cache-and-network",
   });
 
-  const isHome = pathname === "/" || pathname === "/mn";
+  const isHome = ["/", "/en", "/mn"].includes(pathname);
   const isTransparent = isHome && !scrolled;
 
   useEffect(() => {
     if (!isHome) return;
     const main = document.getElementById("main-scroll");
-    if (!main) return;
-    const handleScroll = () => setScrolled(main.scrollTop > 50);
+    const handleScroll = () => {
+      const scrollTop = main ? main.scrollTop : window.scrollY;
+      setScrolled(scrollTop > 50);
+    };
+
     handleScroll();
-    main.addEventListener("scroll", handleScroll, { passive: true });
-    return () => main.removeEventListener("scroll", handleScroll);
+    if (main) {
+      main.addEventListener("scroll", handleScroll, { passive: true });
+    } else {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    }
+
+    return () => {
+      if (main) {
+        main.removeEventListener("scroll", handleScroll);
+      } else {
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
   }, [isHome]);
 
   const navLinks = (data?.cpMenus?.length
@@ -54,7 +68,7 @@ export default function Header() {
 
   const headerBg = isTransparent
     ? "bg-transparent"
-    : "bg-[var(--surface)]/95 backdrop-blur-md border-b border-[rgba(13,13,15,0.06)]";
+    : "bg-white border-b border-[#e5e7eb] shadow-sm";
 
   const logoText = isTransparent ? "text-white" : "text-[var(--color-foreground)]";
   const logoSub = "text-[var(--color-accent)]";
@@ -134,7 +148,7 @@ export default function Header() {
 
             <Link
               href="/accommodation"
-              className={`px-6 py-2.5 text-sm font-medium rounded-lg transition-all shadow-md btn-blue`}
+              className="px-6 py-2.5 text-sm font-medium rounded-lg transition-all shadow-md btn-blue"
             >
               {t("bookNow")}
             </Link>

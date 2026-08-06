@@ -1,52 +1,38 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { Facebook, Instagram } from "lucide-react";
-import { useQuery } from "@apollo/client/react";
-import { CP_MENUS } from "@/graphql/cms/queries/menu";
-import type { CpMenusData, CpMenusVariables } from "@/graphql/cms/queries/menu";
 
 export default function Footer() {
   const t = useTranslations("footer");
-  const locale = useLocale();
   const year = new Date().getFullYear();
 
-  const { data } = useQuery<CpMenusData, CpMenusVariables>(CP_MENUS, {
-    variables: { language: locale, kind: "footer", webId: process.env.NEXT_PUBLIC_ERXES_WEB_ID },
-    fetchPolicy: "cache-and-network",
-  });
-
-  const navItems = (data?.cpMenus?.length
-    ? data.cpMenus
-        .filter((item) => item.kind !== "main")
-        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
-        .map((item) => ({ label: item.label || t("nav.about"), href: item.url || "/" }))
-    : [
-        { label: t("nav.about"), href: "/about" },
-        { label: t("nav.accommodation"), href: "/accommodation" },
-        { label: t("nav.experiences"), href: "/experiences" },
-        { label: t("nav.contact"), href: "/contact" },
-      ]);
+  const navItems = [
+    { label: t("nav.about"), href: "/about" },
+    { label: t("nav.accommodation"), href: "/accommodation" },
+    { label: t("nav.experiences"), href: "/experiences" },
+    { label: t("nav.contact"), href: "/contact" },
+  ];
 
   return (
-    <footer className="bg-[var(--dark-background)] border-t border-[rgba(255,255,255,0.03)]">
+    <footer className="bg-[#1a1613] border-t border-white/10 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-4">
               <div className="relative w-10 h-10">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#2663EB] to-[#1E4CC1] rounded-sm transform rotate-3" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)] rounded-sm transform rotate-3" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-white font-bold text-lg">T</span>
                 </div>
               </div>
               <div>
-                <span className="text-xl font-bold tracking-wide text-[var(--color-foreground)]">Talbiun</span>
-                <span className="block text-[10px] tracking-[0.3em] text-[var(--color-accent)] uppercase">Lodge</span>
+                <span className="text-xl font-bold tracking-wide text-white">Talbiun</span>
+                <span className="block text-[10px] tracking-[0.3em] text-white/80 uppercase">Lodge</span>
               </div>
             </div>
-            <p className="text-muted leading-relaxed max-w-sm mb-8">
+            <p className="text-white/80 leading-relaxed max-w-sm mb-6 text-sm">
               {t("tagline")}
             </p>
             <div className="flex gap-3">
@@ -54,23 +40,23 @@ export default function Footer() {
                 href="https://facebook.com/talbiunlodge"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 border border-white/10 flex items-center justify-center hover:border-[#2663EB] hover:bg-[#2663EB]/10 transition-all"
+                className="w-10 h-10 border border-white/10 flex items-center justify-center hover:border-white/50 hover:bg-white/10 transition-all"
               >
-                <Facebook size={18} className="social-icon-brown" />
+                <Facebook size={16} className="text-white" />
               </a>
               <a
                 href="https://instagram.com/talbiunlodge"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 border border-white/10 flex items-center justify-center hover:border-[#2663EB] hover:bg-[#2663EB]/10 transition-all"
+                className="w-10 h-10 border border-white/10 flex items-center justify-center hover:border-white/50 hover:bg-white/10 transition-all"
               >
-                <Instagram size={18} className="social-icon-brown" />
+                <Instagram size={16} className="text-white" />
               </a>
             </div>
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold tracking-[0.25em] text-[var(--color-accent)] uppercase mb-6">
+            <h4 className="text-xs font-bold tracking-[0.25em] text-white/80 uppercase mb-4">
               {t("explore")}
             </h4>
             <ul className="space-y-2">
@@ -78,7 +64,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-muted hover:text-[var(--color-foreground)] transition-colors"
+                    className="text-white/70 hover:text-white transition-colors text-sm"
                   >
                     {item.label}
                   </Link>
@@ -88,10 +74,10 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-bold tracking-[0.25em] text-[var(--color-accent)] uppercase mb-6">
+            <h4 className="text-xs font-bold tracking-[0.25em] text-white/80 uppercase mb-4">
               {t("contact")}
             </h4>
-            <ul className="space-y-3 text-muted">
+            <ul className="space-y-2 text-white/70 text-sm">
               <li>{t("phone")}</li>
               <li>{t("email")}</li>
               <li className="leading-relaxed">{t("address")}</li>
@@ -99,20 +85,20 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold tracking-[0.25em] text-[var(--color-accent)] uppercase mb-6">
+            <h4 className="text-xs font-bold tracking-[0.25em] text-white/80 uppercase mb-4">
               {t("hours")}
             </h4>
-            <p className="text-muted leading-relaxed">
+            <p className="text-white/70 leading-relaxed text-sm">
               {t("season")}
             </p>
           </div>
         </div>
 
-        <div className="py-8 border-t border-[rgba(255,255,255,0.03)] flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted">
+          <div className="py-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/60">
             &copy; {year} Talbiun Lodge. {t("rights")}.
           </p>
-          <Link href="/" className="text-xs text-muted hover:text-[var(--color-accent)] transition-colors">
+          <Link href="/" className="text-xs text-white/60 hover:text-white transition-colors">
             {t("backToTop")}
           </Link>
         </div>

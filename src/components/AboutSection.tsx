@@ -1,26 +1,15 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ArrowRight } from "lucide-react";
-import { useQuery } from "@apollo/client/react";
-import { CP_POSTS } from "@/graphql/cms/queries/post";
-import type { CpPostsData, CpPostsVariables } from "@/graphql/cms/queries/post";
-import { resolveErxesMediaUrl } from "@/lib/erxes/config";
 
 export default function AboutSection() {
   const t = useTranslations("about");
-  const locale = useLocale();
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
-  const { data } = useQuery<CpPostsData, CpPostsVariables>(CP_POSTS, {
-    variables: { language: locale, limit: 3, status: "published" },
-    fetchPolicy: "cache-and-network",
-  });
-
-  const featuredPost = data?.cpPosts?.[0];
   const stats = [
     { number: "10+", label: t("stats.experience") },
     { number: "50+", label: t("stats.guests") },
@@ -28,7 +17,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" ref={ref} className="h-[calc(100vh-5rem)] min-h-[calc(100vh-5rem)] snap-start flex items-center justify-center bg-[#f7f4ef] py-4 lg:py-0">
+    <section id="about" ref={ref} className="h-[calc(100vh-5rem)] min-h-[calc(100vh-5rem)] snap-start flex items-center justify-center bg-[var(--background)] py-4 lg:py-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
           <motion.div
@@ -36,25 +25,25 @@ export default function AboutSection() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <p className="text-xs tracking-[0.35em] text-[#2663EB] uppercase mb-5 font-medium">
+            <p className="text-sm tracking-[0.35em] text-[var(--color-accent)] uppercase mb-3 font-medium">
               {t("label")}
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1f1a17] leading-[1.1] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[var(--color-foreground)] leading-[1.1] mb-4">
               {t("title")}
             </h2>
 
-            <div className="space-y-5 mb-10">
-              <p className="text-[#4a3f36] leading-[1.8] text-lg">
-                {featuredPost?.excerpt || t("description")}
+            <div className="space-y-2 mb-4">
+              <p className="text-[var(--color-foreground)] leading-[1.5] text-base">
+                {t("description")}
               </p>
-              <p className="text-[#6b5e52] leading-[1.8]">
-                {featuredPost?.content ? featuredPost.content.replace(/<[^>]+>/g, "").slice(0, 220) + (featuredPost.content.length > 220 ? "…" : "") : t("extra")}
+              <p className="text-[var(--color-muted)] leading-[1.5] text-base">
+                {t("extra")}
               </p>
             </div>
 
             <Link 
               href="/about"
-              className="inline-flex items-center text-sm tracking-[0.1em] uppercase text-[#2663EB] hover:text-[#1E4CC1] transition-colors font-semibold group"
+              className="inline-flex items-center text-base tracking-[0.1em] uppercase text-[var(--color-accent)] hover:text-[var(--color-primary-dark)] transition-colors font-semibold group"
             >
               {t("cta")}
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -83,8 +72,8 @@ export default function AboutSection() {
             <div className="relative">
               <div className="relative aspect-[16/9] rounded-sm overflow-hidden natural-shadow">
                 <img
-                  src={resolveErxesMediaUrl(featuredPost?.thumbnail?.url) || "/images/about-ger.jpg"}
-                  alt={featuredPost?.title || "Traditional Mongolian Ger"}
+                  src="/images/about-ger.jpg"
+                  alt="Traditional Mongolian Ger"
                   className="w-full h-full object-cover"
                 />
               </div>
