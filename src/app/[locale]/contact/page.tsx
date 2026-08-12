@@ -1,22 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { MapPin, Phone, Mail, Clock, Send, Facebook, Instagram } from "lucide-react";
+import Script from "next/script";
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from "lucide-react";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
-  };
 
   return (
     <div className="pt-24 pb-24 section-surface min-h-screen">
@@ -132,65 +124,23 @@ export default function ContactPage() {
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="section-surface rounded-2xl p-8 border border-[rgba(255,255,255,0.06)] natural-shadow"
+            className="section-surface rounded-2xl p-8"
           >
-            <h2 className="text-2xl font-bold text-[var(--color-foreground)] mb-6">Send us a Message</h2>
+          
+            <div data-erxes-embed="MnEB9Q" />
 
-            {submitted ? (
-                <div className="text-center py-12">
-                <div className="w-16 h-16 bg-[rgba(255,255,255,0.03)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Send size={32} className="text-[var(--color-accent)]" />
-                </div>
-                <h3 className="text-xl font-bold text-[var(--color-foreground)] mb-2">Message Sent!</h3>
-                <p className="text-muted">Thank you for reaching out. We will get back to you soon.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm text-muted mb-2">{t("form.name")}</label>
-                  <input
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:border-[var(--color-accent)] focus:outline-none"
-                    placeholder="John Doe"
-                    required
-                  />
-                </div>
+            <Script
+              id="erxes-settings"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `window.erxesSettings = { forms: [{ form_id: 'MnEB9Q', channel_id: 'nz3tin9FdxgSZZSocAW2K' }] };`,
+              }}
+            />
 
-                <div>
-                  <label className="block text-sm text-muted mb-2">{t("form.email")}</label>
-                  <input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:border-[var(--color-accent)] focus:outline-none"
-                    placeholder="john@example.com"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm text-muted mb-2">{t("form.message")}</label>
-                  <textarea
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-[var(--surface)] border border-[rgba(255,255,255,0.06)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:border-[var(--color-accent)] focus:outline-none resize-none"
-                    placeholder="How can we help you?"
-                    required
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-4 bg-[var(--color-accent)] text-white font-bold rounded-lg hover:bg-[var(--color-primary-dark)] transition-all flex items-center justify-center gap-2"
-                >
-                  <Send size={20} />
-                  {t("form.send")}
-                </button>
-              </form>
-            )}
+            <Script
+              src="https://talbiuncamp.nextwidgets.erxes.io/formBundle.js"
+              strategy="afterInteractive"
+            />
           </motion.div>
         </div>
       </div>
