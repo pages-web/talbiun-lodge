@@ -54,7 +54,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center flex-shrink-0 border border-[#d8c9b3]">
+                <div className="w-12 h-12 bg-[var(--surface)] rounded-lg flex items-center justify-center flex-shrink-0 border border-[rgba(255,255,255,0.06)]">
                   <Phone size={24} className="text-[#2663EB]" />
                 </div>
                 <div>
@@ -64,7 +64,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center flex-shrink-0 border border-[#d8c9b3]">
+                <div className="w-12 h-12 bg-[var(--surface)] rounded-lg flex items-center justify-center flex-shrink-0 border border-[rgba(255,255,255,0.06)]">
                   <Mail size={24} className="text-[#2663EB]" />
                 </div>
                 <div>
@@ -74,7 +74,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center flex-shrink-0 border border-[#d8c9b3]">
+                <div className="w-12 h-12bg-[var(--surface)] rounded-lg flex items-center justify-center flex-shrink-0 border border-[rgba(255,255,255,0.06)]">
                   <Clock size={24} className="text-[#2663EB]" />
                 </div>
                 <div>
@@ -99,7 +99,7 @@ export default function ContactPage() {
                   href="https://instagram.com/talbiunlodge"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-[#efe9df] rounded-lg flex items-center justify-center hover:bg-[#2663EB]/10 transition-colors border border-[#d8c9b3]"
+                  className="w-12 h-12 bg-[var(--surface)] rounded-lg flex items-center justify-center hover:bg-[var(--color-accent)]/10 transition-colors border border-[rgba(255,255,255,0.06)]"
                 >
                   <Instagram size={24} className="text-[#2663EB]" />
                 </a>
