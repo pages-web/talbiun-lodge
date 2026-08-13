@@ -75,7 +75,7 @@ export default function AccommodationSection() {
           >
             <Link
               href="/accommodation"
-              className="inline-flex items-center text-base tracking-[0.1em] uppercase text-[#7a5e12] hover:text-[#5a450e] transition-colors font-semibold group"
+              className="inline-flex items-center text-base tracking-[0.1em] uppercase text-[#2663EB] hover:text-[#1E4CC1] transition-colors font-semibold group"
             >
               {t("viewAll") || "View All Gers"}
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -90,7 +90,7 @@ export default function AccommodationSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="group bg-[#f7f4ef] natural-shadow natural-shadow-hover transition-all flex flex-col"
+              className="group bg-white natural-shadow natural-shadow-hover transition-all flex flex-col"
             >
               <Link href={`/accommodation/${ger.id}`} className="block flex flex-col h-full">
                 <div className="relative aspect-[16/5] overflow-hidden">
@@ -107,7 +107,7 @@ export default function AccommodationSection() {
 
                 <div className="p-5 flex flex-col flex-1">
                   <div className="flex items-baseline justify-between gap-3 mb-1">
-                    <h3 className="text-xl font-bold text-[#1f1a17] group-hover:text-[#7a5e12] transition-colors leading-tight">
+                    <h3 className="text-xl font-bold text-[#1f1a17] group-hover:text-[#2663EB] transition-colors leading-tight">
                       {t(`${ger.key}.name`)}
                     </h3>
                     <span className="text-sm text-[var(--color-muted)] shrink-0">{ger.size}</span>
